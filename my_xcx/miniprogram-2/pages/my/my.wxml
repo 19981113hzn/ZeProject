@@ -1,0 +1,50 @@
+<!--pages/my/my.wxml-->
+<view class="box">
+	<view class="content">
+		<view class="userInfo" bindtap="{{isLogin? 'toHomePage': 'toPage'}}" data-link="/pages/login/login">
+			<image mode="aspectFill" src="{{!isLogin?defaultImg:pageInfo.avatar}}" class="headImg"></image>
+			<view class="info">
+				<view class="name" wx:if="{{!isLogin}}">点击登录/注册</view>
+				<view class="detail" wx:else>
+					<view class="left">
+						<view class="name">{{pageInfo.name}}</view>
+						<view class="fans">
+							<view class="fans-label" catchtap="toFansList" data-type="0">
+								<text>{{pageInfo.following_count || 0}}</text>
+								<view>关注</view>
+							</view>
+							<view class="fans-label" catchtap="toFansList" data-type="1">
+								<text>{{pageInfo.follower_count || 0}}</text>
+								<view>粉丝</view>
+							</view>
+						</view>
+					</view>
+					<view class="right">个人主页<image src="/images/input_arrow@2x.png" mode="widthFix"></image>
+					</view>
+				</view>
+			</view>
+		</view>
+		<view class="moduleBox">
+			<view class="moduleItem" wx:for="{{moduleList}}" wx:key="index" bindtap="dealJumpEven" data-idx="{{index}}"
+				data-type="0">
+				<view class="icon">
+					<image src="{{item.icon}}"></image>
+				</view>
+				<view class="label">{{item.value}}</view>
+				<view class="dot" wx:if="{{isLogin?(index==1?item.showDot || isShowDot:item.showDot):false}}"></view>
+			</view>
+		</view>
+	</view>
+
+<view class="label">
+		<view class="labelItem {{isLogin?'':'none'}}" wx:for="{{labelList}}" wx:key="index" bindtap="dealJumpEven"
+			data-idx="{{index}}" data-type="1">
+			<view class="value">{{item.value}}</view>
+			<view class="arrowBox">
+				<image class="arrow" src="/images/input_arrow@2x.png" mode="widthFix"></image>
+			</view>
+		</view>
+</view>
+
+<view class="logout" wx:if="{{isLogin}}" bindtap="logout">退出登录</view>
+</view>

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "community-List": "../../component/communityList/communityList"
+  },
+  "navigationStyle": "custom"
+}

@@ -1,0 +1,33 @@
+@import "../../statics/css/variables.less";
+
+.search-page {
+    padding-top: 40px;
+
+    .search-result-tips {
+        margin-bottom: 20px;
+        padding-left: 16px;
+        height: 28px;
+        line-height: 28px;
+        background: #fafafa;
+        border-radius: 8px;
+        font-size: 14px;
+
+        >span {
+            color: red;
+        }
+    }
+
+    .search-result {
+        position: relative;
+    }
+}
+
+// >=1800 设备
+@media (min-width: (@screen-width-lg + 200px)) {
+    .search-page {
+        .content {
+            margin: 0 auto;
+            max-width: @screen-width-lg;
+        }
+    }
+}

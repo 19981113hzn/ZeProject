@@ -1,0 +1,447 @@
+/* homePage/pages/publishProject/publishProject.wxss */
+page {
+	background: #F3F7F7;
+	height: 100%;
+	width: 100%;
+}
+/* 自定义顶部导航栏 */
+.publishProject {
+	min-height: 100%;
+}
+.publishProject .navigateContainer {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 8888;
+	background: rgb(253,254,254);
+}
+.publishProject .navigateBar {
+	position: relative;
+	display: flex;
+	height: 44px;
+	align-items: center;
+	justify-content: center;
+}
+.publishProject .navigateBar .icon {
+	position: absolute;
+	left: 17px;
+	width: 12px;
+	height: 24px;
+}
+.publishProject .navigateBar .title {
+	opacity: 0.9;
+	font-size: 17px;
+	color: #000000;
+}
+
+.publishProject .explain{
+	font-size: 22rpx;
+	color: #62676D;
+	position: relative;
+	background: #fff;
+	padding: 20rpx 56rpx 20rpx 40rpx;
+}
+
+.publishProject .explain view{
+	text-indent: 1rem;
+}
+
+.publishProject .explain image{
+	width: 28rpx;
+	height: 28rpx;
+	position: absolute;
+}
+
+.publishProject .inputTitle {
+	background: #FFFFFF;
+	padding: 28rpx 40rpx;
+	font-size: 32rpx;
+	color: #CACCD2;
+}
+.publishProject .inputTitle .text {
+	font-size: 32rpx;
+	color: #2A2B2D;
+}
+.publishProject .inputTitle .textCaution {
+	border: 1px solid rgb(242, 129, 129);
+	border-radius: 10rpx;
+}
+
+.publishProject .describe {
+	padding: 24rpx 40rpx 30rpx 40rpx;
+	background: #FFFFFF;
+	margin-top: 20rpx;
+}
+.publishProject .describe .text {
+	font-size: 32rpx;
+	color: #2A2B2D;
+	width: 100%;
+	height: 166rpx;
+}
+.publishProject .describe .uploading {
+	margin-top: 52rpx;
+}
+.publishProject .describe .uploading .picture {
+	position: relative;
+	margin-right: 20rpx;
+	display: inline-block;
+}
+.publishProject .describe .uploading .picture image {
+	width: 210rpx;
+	height: 210rpx;
+}
+.publishProject .describe .uploading .picture .icon {
+	position: absolute;
+	top: 10rpx;
+	right: 10rpx;
+	width: 30rpx;
+	height: 30rpx;
+}
+.chooseWrapper {
+	display: inline-block;
+	vertical-align: top;
+}
+.publishProject .describe .uploading .choose {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 210rpx;
+	height: 210rpx;
+	background: #F4F6F8;
+}
+.publishProject .describe .uploading .choose .icon {
+	width: 60rpx;
+	height: 60rpx;
+}
+
+
+.publishProject .information {
+	background: #FFFFFF;
+	padding: 30rpx 40rpx;
+	margin-top: 20rpx;
+}
+.publishProject .information .message {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.publishProject .information .pack {
+	margin-top: 60rpx;
+}
+.publishProject .information .message .label {
+	flex: 1;
+	font-size: 28rpx;
+	color: #2A2B2D;
+}
+.publishProject .information .message .select {
+	font-size: 24rpx;
+	color: #93989E;
+}
+.publishProject .information .message image {
+	width: 14rpx;
+	height: 24rpx;
+	margin-left: 24rpx;
+}
+
+.publishProject .hint {
+	position: fixed;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	bottom: 15%;
+	left: 35%;
+	z-index: 120;
+	padding: 26rpx 40rpx;
+	background: #333;
+	border-radius: 12rpx;
+}
+.publishProject .hint .text {
+	color: #fff;
+	font-size: 24rpx;
+}
+
+.publishProject .protocol {
+	position: relative;
+	display: flex;
+	align-items: center;
+	margin: 36rpx 40rpx 0 40rpx;
+}
+.publishProject .protocol .protocolHint {
+	position: absolute;
+	bottom: 60rpx;
+	left: -16rpx;
+	background: rgba(0, 0, 0, 0.75);
+	box-shadow: 0 4rpx 16rpx 0 rgba(0, 0, 0, 0.15);
+	border-radius: 16rpx;
+	padding: 20rpx 24rpx;
+	text-align: center;
+}
+.publishProject .protocol .protocolHint .desc {
+	font-size: 28rpx;
+	color: #FFFFFF;
+}
+.triangle {
+	position: absolute;
+	bottom: -10rpx;
+	width: 0;
+	height: 0;
+	border-right: 10rpx solid transparent;
+	border-left: 10rpx solid transparent;
+	border-top: 10rpx solid #404040;
+}
+
+switch .wx-switch-input::before{
+	background: #E9E9EA;
+}
+switch .wx-switch-input {
+	zoom: .8;
+}
+checkbox .wx-checkbox-input {
+  width: 28rpx;
+  height: 28rpx;
+}
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+  width: 28rpx;
+  height: 28rpx;
+  line-height: 28rpx;
+  text-align: center;
+  font-size: 22rpx;
+  color: #fff;
+  background: transparent;
+  transform: translate(-50%, -50%) scale(1);
+  -webkit-transform: translate(-50%, -50%) scale(1);
+}
+checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+  background: #02BDD1;
+}
+.publishProject .protocol .rule {
+	font-size: 24rpx;
+	color: #93989E;
+}
+.publishProject .protocol .rule .active {
+	color: #689CFD;
+	line-height: 34px;
+}
+
+
+.publishProject .button {
+	display: flex;
+	height: 100rpx;
+	margin: 38rpx 40rpx 0 40rpx;
+	background: #EDEDED;
+	border-radius: 24rpx;
+	align-items: center;
+	justify-content: center;
+}
+.publishProject .buttonActive {
+	background: #02BDD1;
+}
+.publishProject .button .publish {
+	opacity: .7;
+	font-size: 36rpx;
+	color: #C3C8CE;
+}
+.publishProject .button .publishActive {
+	font-size: 36rpx;
+	color: #FFFFFF;
+	line-height: 48rpx;
+}
+
+/* 单张稿酬预算弹层、稿件用途选择、部分自定义单张稿酬预算 */
+.publishProject .monolayer {
+	position: fixed;
+	bottom: calc(0px + env(safe-area-inset-bottom));
+	left: 0;
+	right: 0;
+	z-index: 100;
+	background: #FFFFFF;
+	border-top-left-radius: 20rpx;
+	border-top-right-radius: 20rpx;
+}
+.publishProject .monolayer .title {
+	padding: 32rpx 40rpx;
+	font-size: 28rpx;
+	color: #93989E;
+	line-height: 36rpx;
+}
+
+.publishProject .monolayer .custom {
+	display: flex;
+	align-items: center;
+	font-size: 32rpx;
+	color: #2A2B2D;
+	line-height: 36rpx;
+	padding: 32rpx 40rpx;
+	border-top: 1px solid #EEEEEE;
+}
+.publishProject .monolayer .custom .desc {
+	flex: 1;
+}
+.publishProject .monolayer .custom .price {
+	color: #93989E;
+	margin-right: 20rpx;
+}
+
+.publishProject .monolayer .content {
+	display: flex;
+	align-items: center;
+	padding: 32rpx 40rpx;
+	border-top: 1px solid #EEEEEE;
+}
+.publishProject .monolayer .content .price {
+	font-size: 32rpx;
+	color: #2A2B2D;
+	line-height: 36rpx;
+}
+.publishProject .monolayer .content .leftContent {
+	font-size: 32rpx;
+	color: #2A2B2D;
+	line-height: 38rpx;
+}
+.publishProject .monolayer .content .middleContent {
+	flex: 1;
+	font-size: 24rpx;
+	color: #93989E;
+	margin-left: 20rpx;
+}
+.publishProject .monolayer image {
+	width: 28rpx;
+	height: 22rpx;
+}
+.publishProject .monolayer .line {
+	height: 16rpx;
+	background: #F2F2F2;
+}
+.publishProject .monolayer .close {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: calc(100rpx + env(safe-area-inset-bottom));
+	padding-bottom: env(safe-area-inset-bottom);
+}
+.publishProject .monolayer .close .text {
+	font-size: 34rpx;
+	color: #2A2B2D;
+	text-align: center;
+	line-height: 36rpx;
+}
+
+/* 自定义单张稿酬预算 */
+.publishProject .monolayer .priceFillIn {
+	position: relative;
+	display: flex;
+	align-items: center;
+	padding: 22rpx 40rpx 0 40rpx;
+	border-top: 1px solid #F4F4F4;
+	margin-bottom: calc(42rpx + env(safe-area-inset-bottom))
+}
+.publishProject .monolayer .priceFillIn .interval {
+	margin-right: 40rpx;
+}
+.publishProject .monolayer .priceFillIn input {
+	flex: 1;
+	font-size: 28rpx;
+	color: #2A2B2D;
+}
+.publishProject .monolayer .priceFillIn .count {
+	flex: 1;
+	font-size: 28rpx;
+	color: #2A2B2D;
+}
+.publishProject .monolayer .priceFillIn .btn {
+	background: #EDEDED;
+	color: #C3C8CE;
+	border-radius: 28rpx;
+	text-align: center;
+	padding: 6rpx 28rpx;
+}
+.publishProject .monolayer .priceFillIn .btnActive {
+	position: relative;
+	background: #02BDD1;
+	color: #fff;
+	z-index: 9999;
+}
+.publishProject .monolayer .priceFillIn .confirm {
+	font-size: 28rpx;
+	text-align: center;
+	line-height: 44rpx;
+}
+
+input{
+    caret-color: #02BDD1;
+	-webkit-user-select: none;
+}
+
+/* 遮罩层 */
+.publishProject .maskLayer {
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	z-index: 50;
+	background: rgba(0, 0, 0, 0.50);
+}
+
+.layer-backdrop {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, .5);
+	z-index: 9999;
+    -webkit-tap-highlight-color: transparent;
+}
+.modal {
+	background: #fff;
+	height: 160px;
+	border-radius: 12px;
+	width: 85%;
+}
+.modal-body {
+	width: 100%;
+	border-radius: 12px;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+.modal-body .content {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 17px;
+	color: #353535;
+	letter-spacing: 0;
+	line-height: 23.8px;
+	height: 104px;
+	width: 100%;
+	padding: 0 24px;
+	border-bottom: 0.5px solid #E5E5E5;
+	box-sizing: border-box;
+	text-align: center;
+}
+.modal-body .btn {
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 56px;
+	font-size: 17px;
+	color: #576B95;
+	font-weight: bold;
+	width: 100%;
+}
+.modal-body .cancel {
+	flex: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 17px;
+	color: #000;
+	border-right: 0.5px solid #E5E5E5;
+}

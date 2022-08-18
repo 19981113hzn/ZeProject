@@ -1,0 +1,177 @@
+<!--communityPage/page/dynamicDetails/dynamicDetails.wxml-->
+<!-- 自定义顶部导航栏 -->
+<view class="navigateContainer">
+<view style="height: {{statusBarHeight}}px;"></view>
+<view class="navigateBar" style="height:{{titleBarHeight}}px">
+<view class="leftIcon" bindtap="clickNav">
+<image wx:if="{{supernatant}}" src="../../image/close@2x.png" data-type="0"></image>
+<image wx:else src="../../image/blackback@2x.png" data-type="1" class="arrow"></image>
+</view>
+<view class="title">{{title}}</view>
+<view></view>
+</view>
+</view>
+<!-- 占位 -->
+<view style="width: 100%;height: {{statusBarHeight+titleBarHeight}}px;flex-shrink: 0;"></view>
+<!-- 页面内容 -- 内容存在  且  没有进入@页面-->
+<view class="page" wx:if="{{!supernatant && !isNone}}">
+<!-- 内容及评论区 -->
+<scroll-view class="box" scroll-y refresher-enabled="{{turnoff}}" refresher-triggered="{{refreshr}}"
+bindscrolltolower="tolower" enable-flex bindrefresherrefresh="onRefresh"
+>
+  <!-- 动态详情 -->
+  <view hidden="{{isHidden}}" style="width: 100%;">
+    <community-list list="{{detail}}" fromExternal="{{true}}" hiddenOperation="{{true}}" bind:showMenu="changeSheet"></community-list>
+  </view>
+  <!-- 分割线 -->
+  <view class="gap" id="gap"></view>
+  <!-- 评论区 -->
+  <view class="content">
+  <!-- 头部标题 -->
+  <view class="navigate">
+    <view class="explain">全部评论 {{count}}</view>
+    <view class="sort" bindtap="switchSort">
+      <image src="../../image/icon_comment_sorting@2x.png"></image>
+      按{{sortObj.list[sortObj.select].name}}
+    </view>
+  </view>
+  <!-- 评论 -->
+  <view class="list" scroll-y wx:if="{{list.length !== 0}}">
+    <view class="list-item" wx:for="{{list}}" wx:key="index" wx:if="{{item.isHidden != true}}">
+      <image class="avatar" src="{{item.user.avatar}}" bindtap="toUser" data-uid="{{item.user.uid}}"></image>
+      <view class="detail">
+        <view class="user" bindtap="toUser" data-uid="{{item.user.uid}}">
+          <view class="user-name">{{item.user.name}}</view>
+          <view class="user-time">{{item.time_desc}}</view>
+        </view>
+        <!-- 内容 -->
+        <view class="detail-txt" bindtap="replyCom" data-idx="{{index}}">
+          <block wx:if="{{item.content.entities.length == 0}}">{{item.content.text}}</block>
+          <block wx:else>
+            <block wx:for="{{item.decode}}" wx:for-item="text" wx:for-index="textIdx" wx:key="textIdx">
+              <block wx:if="{{text.type == 0}}">{{text.text}}</block>
+                  <view class="blue" catchtap="dealDecode" data-index="{{index}}" data-idx="{{textIdx}}" wx:else>
+                    {{text.text}}</view>
+            </block>
+          </block>
+        </view>
+        <!-- 回复 -->
+        <navigator class="reply" wx:if="{{item.sub_comments.length != 0}}" url="/communityPage/page/replyDetail/replyDetail?post_id={{postId}}&parent_id={{item.id}}">
+          <view class="reply-item" wx:for="{{item.sub_comments}}" wx:for-item="com" wx:for-index="idx" wx:key="idx">
+          <view class="label">{{com.user.name}}
+            <block wx:if="{{com.reply_user}}">
+              <text>回复了</text>{{com.reply_user.name}}
+            </block>
+          </view>
+          <text space="ensp" decode="true" class="txt">
+            <block wx:if="{{com.content.entities.length == 0}}">：{{com.content.text}}</block>
+                  <block wx:else>
+                    <block wx:for="{{com.decode}}" wx:for-item="text" wx:for-index="textIdx" wx:key="textIdx">
+                      <block wx:if="{{text.type == 0}}">{{text.text}}</block>
+                      <text class="blue" wx:else>{{text.text}}</text>
+                    </block>
+                  </block>
+          </text>
+            
+          </view>
+          <view class="reply-count" wx:if="{{item.sub_comment_count_digit > 1}}">共{{item.sub_comment_count}}条回复 > </view>
+        </navigator>
+        <!-- 操作 -->
+        <view class="panel">
+          <view class="operation">
+            <view class="icon" data-idx="{{index}}" bindtap="dealLike">
+              <image src="../../image/icon_topic_like{{item.liked?'_on':''}}@2x.png"></image>{{item.like_count}}
+            </view>
+            <view class="icon" data-idx="{{index}}" bindtap="replyCom">
+              <image src="../../image/icon_topic_comments@2x.png"></image>{{item.sub_comment_count_digit}}
+            </view>
+            <view class="icon" wx:if="{{user.uid == item.user.uid}}" data-idx="{{index}}" bindtap="delCom">
+              <image src="../../image/icon_comments_delete@2x.png"></image>
+            </view>
+          </view>
+          <!-- 举报 -->
+          <image src="../../image/icon_comments_report@2x.png" wx:if="{{user.uid != item.user.uid}}"
+          bindtap="tolistReport" data-id='{{item.id}}'
+          ></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 暂无评论 -->
+  <view class="content-none" wx:else>
+    <image src="../../image/im_nomsg@2x.png"></image>
+    <view>暂无评论，快来发表你的评论把</view>
+  </view>
+  </view>
+</scroll-view>
+<!-- 输入评论区 -->
+<view class="input" style="padding-bottom: calc(12rpx + env(safe-area-inset-bottom));">
+  <view class="base">
+    <view class="textarea">
+      <textarea name="" id=""  auto-height value="{{inputvalue}}" bindfocus="basefocus" maxlength="100" adjust-position="{{false}}" 
+      placeholder="{{replyUser.name ? '回复' + replyUser.name : '一起来聊聊吧'}}"
+      ></textarea>
+    </view>
+    <view class="like" bindtap="onlike">
+      <image src="../../image/icon_topic_like{{detail[0].liked?'_on':''}}@2x.png"></image>
+      <view>{{detail[0].like_count}}</view>
+    </view>
+  </view>
+</view>
+
+<!-- 遮罩层 输入框操作面板 聚焦时-->
+<view class="box-mask" wx:if="{{isShowInputPanel}}" catchtap="putaway" catchtouchmove="putaway">
+  <view class="input"
+  style="position:{{isShowInputPanel?'fixed':'unset'}};padding-bottom: {{isShowInputPanel?'12rpx':'calc(12rpx + env(safe-area-inset-bottom))'}};bottom:{{keyHeight}}px"
+  >
+  <view class="base">
+    <view class="textarea">
+      <textarea name="" id=""  auto-height value="{{inputvalue}}" bindfocus="basefocus"     
+      bindinput="baseinput"
+      bindblur="baseblur"
+      focus="{{getfocus}}"
+      maxlength="100" adjust-position="{{false}}"
+      placeholder="{{replyUser.name ? '回复' + replyUser.name : '一起来聊聊吧'}}"
+      ></textarea>
+    </view>
+    <view class="like" bindtap="onlike" wx:if="{{!isShowInputPanel}}">
+      <image src="../../image/icon_topic_like{{detail[0].liked?'_on':''}}@2x.png"></image>
+      <view>{{detail[0].like_count}}</view>
+    </view>
+  </view>
+  <view class="input-panel" wx:if="{{isShowInputPanel}}">
+    <view class="icon" bindtap="clickInputIcon">
+      <image src="../../image/icon_community_at@2x.png" data-type="1"></image>
+    </view>
+    <view class="btn {{canuseBtn ? '' : 'default'}}" bindtap="onSend">发送</view>
+  </view>
+  
+  </view>
+</view>
+
+</view>
+
+<!-- 内容不存在 -->
+<view class="none" wx:if="{{isNone}}">
+  <image src="../../../images/home_off@2x.png"></image>
+  <text>该内容不存在</text>
+</view>
+
+<!-- 对内容进行操作 -->
+<view class="actionSheet" wx:if="{{isShowSheet}}" bindtap="changeSheet">
+  <view class="dialog">
+    <button class="dialog-item" open-type="share">分享</button>
+    <view class="dialog-item" bindtap="onDelete" wx:if="{{user.uid == detail[0].user.uid}}">删除</view>
+    <view class="dialog-item" bindtap="toReport" wx:if="{{user.uid != detail[0].user.uid}}">举报</view>
+    <view class="dialog-item dialog-cancel" catchtap="changeSheet"
+    style="padding-bottom: calc(32rpx + env(safe-area-inset-bottom))"
+    >取消</view>
+  </view>
+</view>
+
+<!-- @ 我关注的人 引入组件my-focus-->
+<my-focus wx:if="{{supernatant}}" navigateHeight="{{statusBarHeight+titleBarHeight}}" bind:selectAt="setAtUser">
+</my-focus>
+
+
+

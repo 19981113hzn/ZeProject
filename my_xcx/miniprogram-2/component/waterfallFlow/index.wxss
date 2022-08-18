@@ -1,0 +1,86 @@
+.block {
+  display: flex;
+}
+.block .column {
+  width: 50%;
+}
+.block .column .column_item {
+  width: 338rpx;
+  background: #fff;
+  margin: 14rpx auto;
+  border-radius: 16rpx;
+}
+.block .column .column_item .column_pic {
+  display: block;
+  width: 338rpx;
+  position: relative;
+  border-radius: 16rpx 16rpx 0 0;
+}
+.block .column .column_item .column_pic .illegal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  background: rgba(0, 0, 0, 0.75);
+  border-radius: 8px 0 8px 0;
+  padding: 2px 8px;
+  z-index: 100;
+}
+.block .column .column_item .column_pic .illegal .image {
+  width: 30rpx;
+  height: 30rpx;
+}
+.block .column .column_item .column_pic .illegal .text {
+  font-size: 28rpx;
+  color: #FFFFFF;
+  line-height: 42rpx;
+  margin-left: 8rpx;
+}
+.block .column .column_item .panel {
+  display: flex;
+  padding: 16rpx;
+  background: #fff;
+  justify-content: space-between;
+  border-radius: 0 0 16rpx 16rpx;
+}
+.block .column .column_item .panel .info {
+  display: flex;
+  font-size: 24rpx;
+  color: #2A2B2D;
+  align-items: center;
+  width: 75%;
+}
+.block .column .column_item .panel .info .name {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  word-break: break-all;
+}
+.block .column .column_item .panel .info .image {
+  width: 40rpx;
+  height: 40rpx;
+  min-width: 40rpx;
+  min-height: 40rpx;
+  border-radius: 50%;
+  margin-right: 16rpx;
+}
+.block .column .column_item .panel .like {
+  display: flex;
+  font-size: 22rpx;
+  color: #62676D;
+  align-items: center;
+}
+.block .column .column_item .panel .like .likeIcon {
+  width: 24rpx;
+  height: 20rpx;
+  margin-left: 6rpx;
+}
+.bottomLoading {
+  width: 68rpx;
+  height: 12rpx;
+  display: block;
+  margin: 0px auto;
+  padding: 20rpx 0;
+}

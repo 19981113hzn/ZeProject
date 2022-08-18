@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "community-list":"../../../component/communityList/communityList",
+    "waterfall-Flow":"../../../component/waterfallFlow/index"
+  },
+  "navigationStyle": "custom"
+}

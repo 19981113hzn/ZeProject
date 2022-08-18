@@ -1,0 +1,5 @@
+<!--pages/login/selectRegion.wxml-->
+<view class="item" wx:for="{{list}}" wx:key="index" bindtap="onSelect" data-code="{{item.code}}">
+	<view class="name">{{item.name}}</view>
+	<view class="code">{{item.code}}</view>
+</view>

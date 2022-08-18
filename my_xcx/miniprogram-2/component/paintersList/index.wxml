@@ -1,0 +1,35 @@
+<!--component/paintersList/index.wxml-->
+<view class="list">
+<view class="listItem" wx:for="{{listData}}" wx:key="index">
+<view class="panel">
+<!-- 画师信息 -->
+<view class="left">
+  <image src="{{item.avatar}}" class="headImg" mode="aspectFill"></image>
+  <view class="info">
+    <view class="name">{{item.name}}</view>
+    <scroll-view scroll-x class="tags" >
+      综合评分：{{item.score}} | 约稿次数：{{item.valid_work_count}} | 粉丝：{{item.follower_count}}
+    </scroll-view>
+  </view>
+</view>
+</view>
+<!-- 图片 -->
+<view class="coverBox" style="z-index: 10;">
+  <swiper class="swiper" bindchange="bindchange" style="z-index: 10;" data-idx="{{index}}" current="{{item.bottomPanel.current - 1}}">
+    <swiper-item wx:for="{{item.detailed_show_works}}" wx:for-item="banner" wx:for-index="idx" wx:key="idx" style="z-index: 10;">
+      <image style="z-index: 10;" src="{{banner.file_url}}" lazy-load class="cover" mode="aspectFill" data-item="{{item}}" bindtap="onClickImg" data-index="{{index}}" data-idx="{{idx}}"></image>
+    </swiper-item>
+  </swiper>
+</view>
+<!-- 底部 -->
+<view class="bottom">
+<view class="like" data-item="{{item.bottomPanel}}" data-idx="{{index}}" bindtap="clickLike">
+<image class="likeIcon" src="../../images/home/{{item.bottomPanel.liked ? 'likeon' : 'likeoff'}}@2x.png" mode="widthFix" ></image>
+<view>{{item.bottomPanel.like_count}}人点赞</view>
+</view>
+<view class="page">{{item.bottomPanel.current}}/{{item.detailed_show_works.length}}</view>
+</view>
+
+
+</view>
+</view>

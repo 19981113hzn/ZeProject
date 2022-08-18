@@ -1,0 +1,158 @@
+@import '../../constants/style/global.less';
+@back-to-top-size: 40px;
+
+.header-container {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: @header-height;
+    line-height: @header-height;
+    z-index: 11;
+
+    .header-wrap {
+        height: @header-height;
+        background-color: rgba(0, 0, 0, 0);
+
+        &:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            display: block;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(360deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
+            opacity: 0.4;
+        }
+
+        &.header-fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 110;
+        }
+
+        &.header-white {
+            background: #fff;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, .1);
+
+            &:after {
+                background: none;
+            }
+
+            .header {
+                .header-search {
+                    position: relative;
+                    left: initial;
+                    transform: initial;
+                    float: right;
+                    margin-right: 40px;
+                }
+
+                .header-logo {
+                    .logo {
+                        background-image: @logoBlack;
+                    }
+                }
+            }
+        }
+
+        .header {
+            position: relative;
+            height: @header-height;
+            text-align: center;
+            z-index: 1;
+
+            .header-search {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 30%;
+                max-width: 400px;
+            }
+
+            .header-logo {
+                float: left;
+                margin-left: 10px;
+
+                .logo {
+                    text-indent: -9999px;
+                    display: inline-block;
+                    width: 110px;
+                    height: 44px;
+                    background-image: @logoWhite;
+                    background-repeat: no-repeat;
+                    background-size: 100% 100%;
+                    vertical-align: middle;
+                }
+            }
+
+            .header-channel {
+                float: left;
+                margin-left: 40px;
+            }
+
+            .header-nav {
+                float: left;
+                margin-left: 20px;
+                height: @header-height;
+                overflow: hidden;
+                .navBarIconList();
+
+                .nav-bar-icon {
+                    float: left;
+                    margin-right: 20px;
+                    height: @header-height;
+                    text-align: left;
+                    font-size: 12px;
+                    overflow: hidden;
+
+                    .nav-bar-icon-cover {
+                        display: inline-block;
+                        padding-left: 30px;
+                        height: 28px;
+                        line-height: 28px;
+                        background-size: 28px 28px;
+                        background-position: left center;
+                        background-repeat: no-repeat;
+                    }
+                }
+            }
+
+            .header-right {
+                float: right;
+
+                .top-links-bar {
+                    display: inline-block;
+                }
+            }
+        }
+    }
+
+    .back-to-top {
+        position: fixed;
+        right: 40px;
+        bottom: 100px;
+        z-index: 10;
+
+        .btn {
+            width: @back-to-top-size;
+            height: @back-to-top-size;
+            font-size: 20px;
+            box-shadow: 0 0 12px 0 rgba(0, 0, 0, .15);
+        }
+    }
+}
+
+// <=1300 设备
+@media (max-width: (@screen-width-lg + 100px)) {
+    .header-container {
+        .header-wrap {
+            .header {
+                .header-nav {
+                    display: none;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,79 @@
+<!--component/communityList/communityList.wxml-->
+
+<view class="community" wx:if="{{list.length}}">
+  <view class="community-item" wx:for="{{_list}}" wx:key="id" wx:if="{{!item.hidden}}" bindtap="_toComment"
+    data-item="{{item}}">
+    <view wx:if="{{isMy && item.status != 1}}" class="tags {{item.status == 2?'fail':''}}">
+      <block wx:if="{{item.status == 0}}">待审核</block>
+      <block wx:if="{{item.status == 2}}">
+        <image class="image" src="../../images/upload_error@2x.png"></image>违规
+      </block>
+    </view>
+    <view class="panel">
+      <view class="panel-user" catchtap="_toUser" data-uid="{{item.user.uid}}">
+        <image class="image" src="{{item.user.avatar}}"></image>
+        <view class="desc">
+          <view class="desc-name">{{item.user.name}}</view>
+          <view>{{item.create_time_desc}}</view>
+        </view>
+      </view>
+      <image catchtap="_showMenu" data-idx="{{index}}" class="panel-menu"
+        src="../../images/community/icon_list_more@2x.png"></image>
+    </view>
+    <!-- 普通动态 -->
+    <view class="content" wx:if="{{item.post_type==1}}" style="padding-bottom:{{hiddenOperation?'16':'0'}}rpx">
+      <view class="content-txt">
+        <block wx:if="{{item.content.entities.length == 0}}">
+          <text decode space="nbsp">{{item.content.text}}</text>
+        </block>
+        <block wx:else>
+          <block wx:for="{{item.decode}}" wx:for-item="text" wx:for-index="textIdx" wx:key="textIdx">
+            <text decode space="nbsp" wx:if="{{text.type == 0}}">{{text.text}}</text>
+            <block wx:else>
+              <image wx:if="{{text.type==3}}" class="linkIcon" src="../../images/icon_topic_link@2x.png"></image>
+              <text decode space="nbsp" class="blue" catchtap="_dealDecode" data-index="{{index}}"
+              data-idx="{{textIdx}}">{{text.text}}</text>
+            </block>
+          </block>
+        </block>
+        <view class="limit" wx:if="{{item.isLimit}}">...全文</view>
+      </view>
+      <view class="content-img" wx:if="{{item.images.length != 0}}">
+        <image mode="aspectFill" wx:for="{{item.images}}" wx:for-index="idx" wx:for-item="pic" wx:key="idx"
+          class="multi" src="{{pic.file_url}}" catchtap="_viewPic" data-current="{{pic.file_url}}"
+          data-arr="{{item.images}}">
+        </image>
+      </view>
+    </view>
+    <!-- 约稿动态 -->
+    <view wx:if="{{item.post_type==2}}">约稿动态</view>
+    <!-- 作品动态 -->
+    <view wx:if="{{item.post_type==3}}">作品动态</view>
+    <view class="operation" wx:if="{{!hiddenOperation}}">
+      <view class="operation-talk" catchtap="_operation" data-type="0" data-idx="{{index}}">
+        <image class="image" src="../../images/community/icon_topic_comments@2x.png"></image>
+        <view>{{item.comment_count}}</view>
+      </view>
+      <view class="operation-like" catchtap="_operation" data-type="1" data-idx="{{index}}">
+        <image class="image" src="../../images/community/icon_topic_like{{item.liked?'_on':''}}@2x.png"></image>
+        <view>{{item.like_count}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="community-none" wx:if="{{isFinished}}">没有更多内容啦~</view>
+</view>
+
+<view class="none" wx:else>
+  <image class="image" src="../../images/home_off@2x.png"></image>
+  <view wx:if="{{isFollow}}">你还没有关注的用户和话题哦~</view>
+</view>
+
+<view class="actionSheet" wx:if="{{_isShowSheet}}" bindtap="_close">
+  <view class="dialog">
+    <button class="dialog-item" open-type="share" data-shareinfo="{{_currentDynamic}}">分享</button>
+    <view class="dialog-item" wx:if="{{_user.uid == _currentDynamic.user.uid}}" bindtap="_onDel">删除</view>
+    <view class="dialog-item" wx:if="{{_user.uid != _currentDynamic.user.uid}}" bindtap="_toReport">举报</view>
+    <view class="dialog-item dialog-cancel" style="padding-bottom: calc(32rpx + env(safe-area-inset-bottom))"
+      bindtap="_close">取消</view>
+  </view>
+</view>

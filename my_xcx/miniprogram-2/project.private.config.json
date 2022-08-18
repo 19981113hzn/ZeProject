@@ -1,0 +1,135 @@
+{
+  "condition": {
+    "miniprogram": {
+      "list": [
+        {
+          "name": "",
+          "pathName": "communityPage/page/releaseDynamic/releaseDynamic",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "communityPage/page/dynamicDetails/dynamicDetails",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "communityPage/page/report/report",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "communityPage/page/replyDetail/replyDetail",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/home/home",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "homePage/pages/userHomePage/userHomePage?uid=6NeoWlen",
+          "query": "uid=6NeoWlen",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "homePage/pages/userHomePage/userHomePage",
+          "query": "uid=6NeoWlen",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "homePage/pages/userHomePage/userHomePage",
+          "query": "uid=6NeoWlen",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "homePage/pages/workDetails/workDetails",
+          "query": "idx=0&index=0&secondIdx=0&info=\"%7B%22headImg%22%3A%22https%3A%2F%2Fhuajia-dev-pub.nos-eastchina1.126.net%2F654%2Fqo2bsVb_Me3F1P9_ILsDFxgb5hCdheT2%22%2C%22name%22%3A%22%E9%9C%80%E6%B1%82%E5%B0%8F%E5%B0%8F%22%2C%22uid%22%3A%226NeoWlen%22%2C%22page%22%3A1%2C%22count%22%3A5%7D\"&type=home",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "homePage/pages/userHomePage/userHomePage",
+          "query": "idx=0&index=0&secondIdx=0&info=%257B%2522headImg%2522%253A%2522https%253A%252F%252Fhuajia-dev-pub.nos-eastchina1.126.net%252F654%252Fqo2bsVb_Me3F1P9_ILsDFxgb5hCdheT2%2522%252C%2522name%2522%253A%2522%25E9%259C%2580%25E6%25B1%2582%25E5%25B0%258F%25E5%25B0%258F%2522%252C%2522uid%2522%253A%25226NeoWlen%2522%252C%2522page%2522%253A1%252C%2522count%2522%253A5%257D&type=home",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "homePage/pages/userHomePage/userHomePage",
+          "query": "uid=6NeoWlen",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/search/search",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "homePage/pages/publishProject/publishProject",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "homePage/pages/manuscripts/manuscriptslist/manuscriptslist",
+          "query": "type=0",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "homePage/pages/manuscripts/manuscriptslist/manuscriptslist",
+          "query": "type=0",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "homePage/pages/manuscripts/manuscriptsDetails/manuscriptsDetails",
+          "query": "id=xekrvwLW",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "homePage/pages/manuscripts/manuscriptsDetails/manuscriptsDetails",
+          "query": "id=3APNGpeB",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "homePage/pages/manuscripts/manuscriptsDetails/manuscriptsDetails",
+          "query": "id=ERzxwOLM",
+          "launchMode": "default",
+          "scene": null
+        }
+      ]
+    }
+  },
+  "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html"
+}

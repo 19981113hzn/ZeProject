@@ -1,0 +1,144 @@
+<!--homePage/pages/userHomePage/userHomePage.wxml-->
+<!-- 导航栏 -->
+<view class="navigateContainer">
+<view style="height: {{statusBarHeight}}px;"></view>
+<view class="navigateBar" style="height: {{titleBarHeight}}px;">
+<view class="leftIcon" bindtap="toReturn">
+<image src="../../image/blackback@2x.png"></image>
+</view>
+<view></view>
+<view></view>
+</view>
+</view>
+<!-- 用户信息 -->
+<view class="userInfo">
+<image class="userHead" src="{{detail.avatar}}"></image>
+<view class="btnPlane">
+<view class="invite">邀请</view>
+<view class="invite follow {{detail.followed?'isFollow' : ''}}" bindtap="onFollow">{{detail.followed?'已关注':'关注'}}</view>
+<view class="share">
+<image src="../../image/share@2x.png"></image>
+<button class="btnShare" open-type="share"></button>
+</view>
+</view>
+<view class="name">
+<view class="title">{{detail.name}}</view>
+</view>
+<view class="label">
+<view class="prove">
+<view class="prove-bg"></view>
+<view>ID:{{detail.uid}}</view>
+</view>
+<view class="prove" wx:for="{{detail.user_tag}}" wx:key="index">
+<view class="prove-bg" style="background: {{item.rgba_bg_color}};"></view>
+<image src="{{item.icon}}"></image>
+<view>{{item.title}}</view>
+</view>
+<!-- 标签 -->
+<view class="tags" wx:if="{{false}}">
+<view class="tag" wx:for="{{detail.show_tags}}" wx:key="index">{{item}}</view>
+</view>
+</view>
+<!-- 签名 -->
+<view class="desc" style="{{isUnfold?'display:-webkit-box':'display:block'}}">
+{{detail.intro ? detail.intro : ''}}
+<view wx:if="{{moreBtn}}" class="btn" style="{{isUnfold?'':'positon:unset'}}" bindtap="toggleText">{{isUnfold?'...更多':'收起'}}</view>
+</view>
+<view class="fans">
+<view class="fans-label" bindtap="toFansList" data-type="0" data-uid="{{detail.uid}}">
+<text>{{detail.following_count}}</text>
+<view>关注</view>
+</view>
+<view class="fans-label" bindtap="toFansList" data-type="1" data-uid="{{detail.uid}}">
+<text>{{detail.follower_count}}</text>
+<view>粉丝</view></view>
+</view>
+</view>
+<!-- 列表 -->
+<view class="listContent"
+  style="height:calc(100% - {{userInfoHeight}}px);padding-bottom: calc(env(safe-area-inset-bottom));">
+  <view class="tab">
+    <view class="tabs {{tabNav.idx==index?'now':''}}" wx:for="{{tabNav.list}}" wx:key="index" bindtap="changeTab"
+      data-idx="{{index}}">{{item.name}}</view>
+    <view class="line" style="left:{{tabWidth/2-8+tabNav.idx*tabWidth}}px"></view>
+  </view>
+ <swiper current="{{tabNav.idx}}" bindchange="changeSwiper" style="height:calc(100% - 53px)">
+ <!-- 动态 -->
+ <swiper-item>
+ <scroll-view style="height:100%" scroll-y="true" bindscrolltolower="bindscrolltolower">
+ <community-list list="{{communityList}}" fromExternal="{{true}}" bind:showMenu="changeSheet"  needCutter="{{true}}" isFinished="{{communityFinished}}" wx:if="{{communityList.length != 0}}"></community-list>
+ <view class="null" wx:else>
+  <image src="../../image/none_huashi@2x.png"></image>
+  <view>还没有动态哦</view>
+ </view>
+ </scroll-view>
+ </swiper-item>
+ <!-- 作品 -->
+ <swiper-item>
+ <scroll-view class="manuscriptList" scroll-y="true" bindscrolltolower="bindscrolltolower">
+ <waterfall-Flow columns="{{columns}}" isShowLoading="{{finished}}" color="white"bind:onClick="onClickImg"></waterfall-Flow>
+ <view class="null" wx:if="{{list.length == 0}}">
+  <image src="../../image/none_huashi@2x.png"></image>
+  <view>还没有发表过作品哦</view>
+ </view>
+ </scroll-view>
+ </swiper-item>
+ 
+ <!-- 约稿 -->
+ <swiper-item>
+ <scroll-view class="manuscriptList" bindscrolltolower="bindscrolltolower" scroll-y="true" style="height: {{list2.length == 0 ? 'unset' : '100%'}};">
+ <view class="manuscriptItem {{item.status == 4 ? 'overItem' : ''}}" wx:for="{{list2}}" wx:for-index="indexs" wx:key="indexs" bindtap="toProject" data-idx="{{indexs}}">
+  <view class="waterMark" wx:if="{{item.status == 4}}">已完结</view>
+  <view class="title">{{item.project_name}}</view>
+  <view class="tags">
+    <view class="tag" wx:for="{{item.show_tags}}" wx:key="idx" wx:for-index="idx">{{item}}</view>
+  </view>
+  <view class="panel">
+    <view>截稿时间：{{item.end_date}}</view>
+    <view class="amount">¥{{item.min_price}}~{{item.max_price}}</view>
+  </view>
+ </view>
+ <view class="null" wx:if="{{list2.length == 0}}">
+  <image src="../../image/none_huashi@2x.png"></image>
+  <view>还没有约稿哦</view>
+ </view>
+ </scroll-view>
+ </swiper-item>
+
+ <!-- 评价 -->
+ <swiper-item>
+ <scroll-view class="manuscriptList evaluateContent" scroll-y="true"> 
+  <view class="manuscriptItem" wx:if="{{detail.has_employer_score}}">
+    <view class="title">来自需求方的评价</view>
+    <view class="scorePanel">
+      <view class="label" wx:for="{{detail.artist_scores}}" wx:key="index">
+        <view>{{item.title}}</view>
+        <view>{{item.score}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="manuscriptItem" wx:if="{{detail.has_artist_score}}">
+    <view class="title">来自画师的评价</view>
+    <view class="scorePanel">
+    <view class="label" wx:for="{{detail.employer_scores}}" wx:key="index">
+        <view>{{item.title}}</view>
+        <view>{{item.score}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="null" wx:if="{{!detail.has_employer_score && !detail.has_artist_score}}">
+  <image src="../../image/none_huashi@2x.png"></image>
+  <view>还没有获得哦</view>
+ </view>
+ </scroll-view>
+ </swiper-item>
+ </swiper>
+</view>
+<!-- 邀请约稿 -->
+<view></view>
+<!-- 自定义提示框 -->
+<view></view>
+<!-- 邀请该画师加入约稿项目-选择框 -->
+<view></view>
+<!-- 操作栏 -->
+<view></view>

@@ -1,0 +1,33 @@
+.bread-crumb-wrap {
+    background: #fff;
+    padding: 25px 25px 5px;
+    font-size: 16px;
+
+    .nav-link {
+        color: #5a5a5a;
+        display: inline-block;
+        vertical-align: middle;
+
+        &:hover {
+            color: #ffb72b;
+        }
+    }
+
+    .nav-span {
+        display: inline-block;
+        color: #a6a6a6;
+        vertical-align: middle;
+    }
+
+    .nav-link:not(:last-child) {
+        &::after {
+            display: inline-block;
+            content: ' ';
+            width: 5px;
+            height: 10px;
+            vertical-align: middle;
+            margin: -2px 6px 0 6px;
+            background: url(../../statics/images/web_breadcrumb.png) no-repeat;
+        }
+    }
+}

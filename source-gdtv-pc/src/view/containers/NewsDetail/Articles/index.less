@@ -1,0 +1,185 @@
+@import "../../../statics/css/variables.less";
+
+.article {
+    position: relative;
+    padding: 40px 0 120px 0;
+    height: 100%;
+    background-color: #fafafa;
+
+    .layout {
+        position: relative;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .article-detail {
+        position: relative;
+        display: inline-block;
+        vertical-align: top;
+        padding: 50px;
+        width: calc(~"100% - 350px");
+        background-color: #fff;
+        border-radius: 8px;
+
+        &.overspread {
+            width: 100%;
+        }
+
+        hr {
+            margin-bottom: 40px;
+            border: none;
+            border-top: 1px solid #f5f5f5;
+        }
+
+        .pre-sub-title {
+            margin-bottom: 20px;
+            line-height: 21px;
+            font-family: MicrosoftYaHei-Bold;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .title {
+            margin-bottom: 20px;
+            line-height: 31px;
+            font-family: MicrosoftYaHei-Bold;
+            font-weight: bold;
+            font-size: 24px;
+        }
+
+        .sub-title {
+            margin-bottom: 40px;
+            line-height: 21px;
+            color: #999;
+            font-family: MicrosoftYaHei-Bold;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .media {
+            margin-bottom: 20px;
+            line-height: 16px;
+            color: #999;
+            font-size: 12px;
+
+            span {
+                color: #999;
+                margin-right: 20px;
+            }
+        }
+
+        .attaches {
+            margin-bottom: 10px;
+            a {
+                color: #4A90E2;
+            }
+        }
+
+        .origin-link {
+            display: inline-block;
+            padding: 0 12px;
+            height: 26px;
+            line-height: 26px;
+            color: #999;
+            font-size: 12px;
+            text-align: center;
+            background-color: #FAFAFA;
+            border-radius: 6px;
+
+            &:hover {
+                color: #40a9ff;
+            }
+
+            &:active {
+                color: #096dd9;
+            }
+
+            :global {
+                .anticon {
+                    margin-right: 4px;
+                }
+            }
+        }
+
+        .article-content {
+            margin-bottom: 40px;
+            line-height: 28px;
+        }
+    }
+
+    .more-box {
+        position: relative;
+        display: inline-block;
+        vertical-align: top;
+        margin-left: 20px;
+        width: 330px;
+
+        .more-detail {
+            padding: 50px 10px 20px 10px;
+            background-color: #fff;
+            border-radius: 8px;
+        }
+
+        .text-more {
+            margin-bottom: 20px;
+            padding-left: 20px;
+            line-height: 26px;
+            font-size: 20px;
+            font-family: MicrosoftYaHei-Bold;
+            font-weight: bold;
+        }
+
+        .flow-card {
+            position: relative;
+            margin-bottom: 15px;
+            padding: 15px 20px;
+            width: 100%;
+            height: 80px;
+            background-color: #fafafa;
+            border-radius: 8px;
+            cursor: pointer;
+
+            .news-title {
+                position: relative;
+                padding: 6px 110px 6px 0;
+                height: 100%;
+                line-height: 20px;
+                font-size: 14px;
+
+                :global(.ant-typography) {
+                    margin: 0;
+                }
+            }
+
+            .news-cover {
+                position: absolute;
+                top: 15px;
+                right: 20px;
+                width: 90px;
+                height: 50px;
+                background-color: #eee;
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+        }
+    }
+
+    .fixed {
+        position: fixed;
+    }
+
+    .fixed-bottom {
+        position: absolute;
+        bottom: 0;
+    }
+}
+
+// <(1200 + [160px的margin] )设备
+@media (max-width: (@screen-width-lg + 80px)) {
+    .article {
+        .layout {
+            margin: 0 40px;
+        }
+    }
+}

@@ -1,0 +1,22 @@
+<view class="page" style="height:calc(100vh - {{navigateHeight}}px)">
+<!-- 搜索框 -->
+<view class="input">
+<image class="image" src="../../communityPage/image/search_small@2x.png"></image>
+<input type="text" class="ipt" placeholder="输入你想要@的人"
+placeholder-style="color:#CACCD2" bindinput="_input" value="{{val}}"
+/>
+
+</view>
+<!-- 关注列表 -->
+<scroll-view class="list" scroll-y wx:if="{{list.length != 0}}" bindscrolltolower="_tolower">
+<view class="list-item" wx:for="{{list}}" wx:key="index" bindtap="_select" data-item="{{item}}">
+<image class="image" src="{{item.avatar}}"></image>
+<view>{{item.name}}</view>
+</view>
+</scroll-view>
+<!-- 无关注的人 -->
+<view class="none" wx:else>
+<image class="image" src="../../images/home_off@2x.png"></image>
+<view>{{_tips}}</view>
+</view>
+</view>

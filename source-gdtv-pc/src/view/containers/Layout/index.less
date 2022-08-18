@@ -1,0 +1,18 @@
+@import "../../statics/css/variables.less";
+
+.page-layout {
+    position: relative;
+    padding-bottom: @footer-height;
+    min-width: @width-content-md + 160;
+
+    .page-container {
+        position: relative;
+        width: 100%;
+        margin: 0 auto;
+    }
+}
+
+:global(.global-page-layout) {
+    background: #fff;
+    min-width: @width-content-md + 160;
+}

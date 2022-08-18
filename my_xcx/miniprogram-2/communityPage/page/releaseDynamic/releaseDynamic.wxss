@@ -1,0 +1,224 @@
+/* commityPage/page/releaseDynamic/releaseDynamic.wxss */
+page {
+  display: flex;
+  align-items: center;
+  justify-content: inherit;
+  width: 100%;
+  height: 100vh;
+  flex-direction: column;
+}
+.navigateContainer {
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+  position: fixed;
+  background: #fff;
+}
+.navigateContainer .navigateBar {
+  display: flex;
+  margin: 0 auto;
+  font-size: 32rpx;
+  align-items: center;
+  width: calc(100% - 30rpx);
+  justify-content: space-between;
+  width: 100%;
+}
+.navigateContainer .navigateBar view {
+  flex: 1;
+}
+.navigateContainer .navigateBar .leftIcon {
+  display: flex;
+  align-items: center;
+}
+.navigateContainer .navigateBar .leftIcon image {
+  width: 32rpx;
+  height: 32rpx;
+  margin-left: 32rpx;
+}
+.navigateContainer .navigateBar .leftIcon .arrow {
+  width: 24rpx;
+  height: 48rpx;
+}
+.navigateContainer .navigateBar .title {
+  font-weight: bold;
+  text-align: center;
+}
+.content {
+  flex: 1;
+  width: 100%;
+  overflow: hidden;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.content .box {
+  flex: 1;
+  width: 100%;
+  overflow: auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+.content .topic {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 40rpx 40rpx 36rpx;
+}
+.content .topic-label {
+  font-size: 28rpx;
+  color: #93989E;
+}
+.content .topic-panel {
+  flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  justify-content: inherit;
+  padding-bottom: 40rpx;
+  border-bottom: 1rpx solid #F3F7F7;
+}
+.content .topic-panel-item {
+  font-size: 24rpx;
+  color: #2A2B2D;
+  padding: 10rpx 20rpx;
+  border-radius: 26rpx;
+  background: #F4F6F6;
+  margin: 20rpx 8rpx 0 0;
+}
+.content .topic-click {
+  background: rgba(2, 189, 209, 0.2);
+}
+.content .input {
+  flex: 1;
+  width: 100%;
+  overflow: auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: inherit;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 0 40rpx 40rpx;
+}
+.content .input .textarea {
+  width: 100%;
+  overflow: auto;
+  font-size: 32rpx;
+  color: #2A2B2D;
+  min-height: 174rpx;
+  margin-bottom: 40rpx;
+  word-break: break-all;
+}
+.content .input .textarea textarea {
+  width: 100%;
+  overflow: hidden;
+}
+.content .input .pic {
+  display: flex;
+  align-items: center;
+  justify-content: inherit;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+.content .input .pic-item,
+.content .input .pic-upload {
+  width: 210rpx;
+  height: 210rpx;
+  position: relative;
+  background: #F4F6F8;
+  margin: 0 12rpx 12rpx 0;
+}
+.content .input .pic-upload::before,
+.content .input .pic-upload::after {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  content: "";
+  width: 4rpx;
+  margin: auto;
+  height: 60rpx;
+  position: absolute;
+  background: #d8d8d8;
+}
+.content .input .pic-upload::after {
+  transform: rotate(90deg);
+}
+.content .input .pic-item .close {
+  top: 10rpx;
+  right: 10rpx;
+  width: 30rpx;
+  height: 30rpx;
+  position: absolute;
+}
+.content .input .pic-item .cover {
+  width: 100%;
+  height: 100%;
+}
+.content .operation {
+  z-index: 10000;
+  width: 100%;
+  flex-shrink: 0;
+}
+.content .operation-panel {
+  z-index: 100;
+  width: 100%;
+  height: 96rpx;
+  padding: 0 32rpx;
+  line-height: 96rpx;
+  background: #F3F7F7;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.content .operation-panel .icon {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.content .operation-panel .icon image {
+  width: 64rpx;
+  height: 64rpx;
+  margin-right: 24rpx;
+}
+.content .operation-panel .btn {
+  height: 56rpx;
+  color: #fff;
+  padding: 0 28rpx;
+  font-size: 28rpx;
+  line-height: 56rpx;
+  border-radius: 28rpx;
+  background: #02BDD1;
+}
+.content .operation-panel .default {
+  color: #C3C8CE;
+  background: #EDEDED;
+}
+.toast {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.toast-content {
+  display: flex;
+  align-items: center;
+  justify-content: inherit;
+  width: 180rpx;
+  color: #fff;
+  height: 180rpx;
+  font-size: 28rpx;
+  border-radius: 24rpx;
+  flex-direction: column;
+  background: rgba(0, 0, 0, 0.7);
+}
+.toast-content image {
+  width: 68rpx;
+  height: 68rpx;
+  margin-bottom: 12rpx;
+}

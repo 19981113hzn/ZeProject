@@ -1,0 +1,63 @@
+*,
+:after,
+:before {
+    margin: 0;
+    padding: 0;
+}
+
+:focus {
+    outline: 0;
+}
+
+html,
+body {
+    min-width: 900px;
+    font-size: 14px;
+    font-family: PingFangSC-Medium, PingFang SC, Microsoft YaHei;
+    color: #333;
+    background: #fafafa;
+}
+
+ul,
+li,
+dl {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    color: #333;
+    text-decoration: none;
+
+    &:focus,
+    &:active {
+        text-decoration: none;
+    }
+}
+
+button {
+    outline: none;
+}
+
+:global {
+    #root {
+        min-height: 100%;
+        transition: all 1s linear;
+    }
+
+    a[title='站长统计'] {
+        display: none;
+    }
+}

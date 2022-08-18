@@ -1,0 +1,58 @@
+@import "../../../statics/css/variables.less";
+
+.palceholder {
+    position: relative;
+    right: 100%;
+    opacity: 0;
+}
+
+.cardFlowAd {
+    position: relative;
+    padding-top: 56.6%;
+    border-radius: 8px;
+    background: #e4e4e4;
+    overflow: hidden;
+}
+
+card-flow-double {
+    min-height: 280px;
+}
+
+// <=1200 设备
+@media (max-width: (@screen-width-lg - 1)) {
+    .flow-overview {
+        &:nth-child(n+4) {
+            display: none;
+        }
+    }
+}
+
+// 1600<=<1200 设备
+@media (max-width: (@screen-width-xl - 1)) and (min-width: @screen-width-lg) {
+    .flow-overview {
+        &:nth-child(n+6) {
+            display: none;
+        }
+    }
+}
+
+// >1600 设备
+@media (min-width: (@screen-width-xl)) {
+    .card-flow-double {
+        :global {
+            .ant-col-xxl-6 {
+                width: 28.57%;
+            }
+
+            .ant-col-xxl-3 {
+                width: 14.28%;
+            }
+        }
+    }
+
+    .flow-overview {
+        &:nth-child(n+7) {
+            display: none;
+        }
+    }
+}

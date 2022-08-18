@@ -1,0 +1,123 @@
+<!--communityPage/page/replyDetail/replyDetail.wxml-->
+<!-- 彩蛋 -->
+<egg-dialog id="egg" dialogData="{{colored_egg}}"></egg-dialog>
+<!-- 导航栏 -->
+<view class="navigateContainer">
+  <view style="height:{{statusBarHeight}}px;"></view>
+  <view class="navigateBar" style="height:{{titleBarHeight}}px;">
+    <view class="leftIcon" bindtap="clickNav">
+      <image wx:if="{{supernatant}}" src="../../image/close@2x.png" data-type="0"></image>
+      <image wx:else class="arrow" src="../../image/blackback@2x.png" data-type="1"></image>
+    </view>
+    <view class="title">{{title}}</view>
+    <view></view>
+  </view>
+</view>
+<view style="width:100%;height:{{statusBarHeight+titleBarHeight}}px;flex-shrink:0"></view>
+<view class="page" wx:if="{{!supernatant && !isNone}}">
+  <view class="box-mask" catchtap='putaway' catchtouchmove="putaway" wx:if="{{isShowInputPanel}}"></view>
+  <view class="box">
+    <!-- 评论 -->
+    <view class="detail">
+      <view class="postDetail" wx:for="{{detail}}" wx:key="index">
+        <image class="avatar" src="{{item.user.avatar}}" bindtap="toUser" data-uid="{{item.user.uid}}"></image>
+        <view class="detail">
+          <view class="user" bindtap="toUser" data-uid="{{item.user.uid}}">
+            <view class="user-name">{{item.user.name}}</view>
+            <view class="user-time">{{item.time_desc}}</view>
+          </view>
+          <view class="detail-txt" bindtap="replyCom" data-idx="{{index}}" data-type="detail">
+            <block wx:if="{{item.content.entities.length == 0}}">{{item.content.text}}</block>
+            <block wx:else>
+              <block wx:for="{{item.decode}}" wx:for-item="text" wx:for-index="textIdx" wx:key="textIdx">
+                <block wx:if="{{text.type == 0}}">{{text.text}}</block>
+                <view class="blue" catchtap="dealDecode" data-index="{{index}}" data-idx="{{textIdx}}"
+                  data-type="detail" wx:else>{{text.text}}</view>
+              </block>
+            </block>
+          </view>
+          <view class="panel">
+            <view class="operation">
+              <view class="icon" bindtap="dealLike" data-idx="{{index}}" data-type="detail">
+                <image src="../../image/icon_topic_like{{item.liked?'_on':''}}@2x.png"></image>{{item.like_count}}
+              </view>
+              <view class="icon" bindtap="replyCom" data-idx="{{index}}" data-type="detail">
+                <image src="../../image/icon_topic_comments@2x.png"></image>
+              </view>
+              <view class="icon" wx:if="{{user.uid == item.user.uid}}" bindtap="delCom" data-idx="{{index}}"
+                data-type="detail">
+                <image src="../../image/icon_comments_delete@2x.png"></image>
+              </view>
+            </view>
+            <image wx:if="{{user.uid != item.user.uid}}" class="report" bindtap="report" data-idx="{{index}}"
+              data-type="detail" src="../../image/icon_comments_report@2x.png"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 回复 -->
+    <scroll-view class="list" enable-flex scroll-y bindscrolltolower="tolower">
+      <view class="postDetail" wx:for="{{list}}" wx:key="index">
+        <image class="avatar" src="{{item.user.avatar}}" bindtap="toUser" data-uid="{{item.user.uid}}"></image>
+        <view class="detail">
+          <view class="user" bindtap="toUser" data-uid="{{item.user.uid}}">
+            <view class="user-name">{{item.user.name}}</view>
+            <view class="user-time">{{item.time_desc}}</view>
+          </view>
+          <view class="detail-txt" bindtap="replyCom" data-idx="{{index}}" data-type="list">
+            <text class="detail-reply" wx:if="{{item.reply_user}}">回复了 <text>{{item.reply_user.name}}</text>：</text>
+            <block wx:if="{{item.content.entities.length == 0}}">{{item.content.text}}</block>
+            <block wx:else>
+              <block wx:for="{{item.decode}}" wx:for-item="text" wx:for-index="textIdx" wx:key="textIdx">
+                <block wx:if="{{text.type == 0}}">{{text.text}}</block>
+                <view class="blue" catchtap="dealDecode" data-index="{{index}}" data-idx="{{textIdx}}" data-type="list"
+                  wx:else>{{text.text}}</view>
+              </block>
+            </block>
+          </view>
+          <view class="panel">
+            <view class="operation">
+              <view class="icon" bindtap="dealLike" data-idx="{{index}}" data-type="list">
+                <image src="../../image/icon_topic_like{{item.liked?'_on':''}}@2x.png"></image>{{item.like_count}}
+              </view>
+              <view class="icon" wx:if="{{user.uid == item.user.uid}}" bindtap="delCom" data-idx="{{index}}"
+                data-type="list">
+                <image src="../../image/icon_comments_delete@2x.png"></image>
+              </view>
+            </view>
+            <image wx:if="{{user.uid != item.user.uid}}" class="report" bindtap="report" data-idx="{{index}}"
+              data-type="list" src="../../image/icon_comments_report@2x.png"></image>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+  <!-- style="padding-bottom: calc(12rpx + env(safe-area-inset-bottom))" -->
+  <view class="input"
+    style="position:{{isShowInputPanel?'fixed':'unset'}};padding-bottom: {{isShowInputPanel?'12rpx':'calc(12rpx + env(safe-area-inset-bottom))'}};bottom:{{keyHight}}px">
+    <view class="base">
+      <view class="textarea">
+        <textarea value="{{inputvalue}}" bindblur="baseblur" bindfocus="basefocus" bindinput="baseinput" maxlength="100"
+          adjust-position="{{false}}" auto-height show-confirm-bar="{{false}}" focus="{{getfocus}}" cursor-spacing="48"
+          placeholder="回复{{replyuser.name}}"></textarea>
+      </view>
+
+      <!-- <input type="text" value="{{inputvalue}}" bindblur="baseblur" bindfocus="basefocus" bindinput="baseinput"
+        focus="{{getfocus}}" placeholder="回复{{replyuser.name}}" cursor-spacing="48"></input> -->
+    </view>
+    <view class="input-panel" wx:if="{{isShowInputPanel}}">
+      <view class="icon" bindtap="clickInputIcon">
+        <!-- <image src="../../image/icon_community_{{isShowEmoji?'keyboard':'face'}}@2x.png" data-type="0"></image> -->
+        <image src="../../image/icon_community_at@2x.png" data-type="1"></image>
+      </view>
+      <view class="btn {{canuseBtn?'':'default'}}" bindtap="onSend">发送</view>
+    </view>
+    <component-emoji wx:if="{{isShowEmoji}}" fromDynamic="{{true}}"></component-emoji>
+  </view>
+</view>
+<view class="none" wx:if="{{isNone}}">
+  <image src="../../../images/home_off@2x.png"></image>
+  <text decode>该内容不存在&gt;_&lt;！</text>
+</view>
+<my-focus wx:if="{{supernatant}}" navigateHeight="{{statusBarHeight+titleBarHeight}}" bind:selectAt="setAtUser">
+</my-focus>

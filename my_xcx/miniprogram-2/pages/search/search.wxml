@@ -1,0 +1,77 @@
+<!--pages/search/search.wxml-->
+<view class="searchPage">
+<!-- 搜索框 -->
+<view class="searchContent">
+<!-- 搜索栏 -->
+<view class="searchBox">
+<image src="../../images/search_small@2x.png" class="search"></image>
+<input type="text" placeholder="关键词" placeholder-style="font-size: 14px; color: #CACCD2; line-height: 18px;" bindinput="textInput" value="{{text}}" maxlength="20"/>
+<view class="text" style="{{!status ? 'color:#93989E' : ''}}" bindtap="{{status ? 'searchInfo' : ''}}">搜索</view>
+<image src="../../images/input_close@2x.png" class="icon" wx:if="{{status}}" bindtap="clearSearch"></image>
+</view>
+<!-- 搜索分类 -->
+<view class="navigation">
+<view class="text {{searchIndex == index ? 'activeText' : ''}}" wx:for="{{searchTypes}}" bindtap="switchType" wx:key="index" data-idx="{{index}}">{{item}}
+<view class="line" wx:if="{{searchIndex == index}}" style="{{searchIndex == 1 ? 'left:544rpx' : ''}}"></view>
+</view>
+</view>
+</view>
+
+<!-- 搜索内容 -->
+<view class="listPage">
+
+  <!-- 搜索前 -->
+  <block wx:if="{{!isHaveSearch}}">
+  <view class="content">
+  <!-- 热门搜索 -->
+  <view class="hot">
+    <view class="title">热门搜索</view>
+    <view  class="labelWapper">
+      <view class="label" wx:for="{{words}}" wx:key="index" bindtap="seek" data-text="{{item.name}}" data-url="{{item.url}}">
+        <view class="text">{{item.name}}</view>
+      </view>
+    </view>
+  </view>
+  <!-- 历史搜索 -->
+  <view class="historyInfo">
+
+    <view class="historyPack">
+      <view class="title">历史搜索</view>
+      <image src="../../images/delete@2x.png" bindtap="clear"></image>
+    </view>
+
+    <view class="labelWapper">
+      <view class="label" wx:for="{{historicals}}" wx:key="index" bindtap="seek" data-text="{{item}}" wx:if="{{index<8}}">
+      <view class="text">{{item}}</view>
+    </view>
+    </view>
+
+  </view>
+
+  </view>
+  </block>
+
+  <!-- 搜索后 -->
+  <block wx:else>
+  <!-- 画师列表 -->
+  <scroll-view class="list" style="height: 100%;" wx:if="{{artists.length && searchIndex == 0}}" scroll-y>
+    <painters-List listData="{{artists}}"></painters-List>
+  </scroll-view>
+
+  <!-- 作品列表 -->
+  <scroll-view class="list {{isShowMenu?'mask':''}}" style="height: 100%;" wx:if="{{painterWorks.length && searchIndex == 1}}" scroll-y scroll-top="{{scrollTop}}">
+    <waterfall-Flow columns="{{columns}}" isShowLoading="{{finished}}" bind:onClick="onClickImg" isShowPanel="{{true}}"></waterfall-Flow>
+  </scroll-view>
+
+  <!-- 无数据 -->
+  <view class="shadeWapper" wx:if="{{(searchIndex == 0 && artists.length == 0) || (searchIndex == 1 && painterWorks.length == 0)}}">
+    <view class="shadePack">
+      <image src="../../images/home_off@2x.png"></image>
+      <view class="text">没有找到相关的内容</view>
+    </view>
+  </view>
+  </block>
+
+</view>
+
+</view>

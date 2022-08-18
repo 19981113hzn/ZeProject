@@ -1,0 +1,145 @@
+<!--pages/home/home.wxml-->
+<!-- 彩蛋 -->
+<egg-dialog id="egg" dialogData="{{colored_egg}}"></egg-dialog>
+<!-- 悬浮-导航栏、登录、发布、导航菜单 -->
+<view class="navigateContainer">
+	<view style="height:{{statusBarHeight}}px;"></view>
+	<view class="navigateBar" style="height:{{titleBarHeight}}px;">
+		<view class="leftIcon" bindtap="jumpPage" data-link="/pages/search/search">
+			<image src="../../images/home/search@2x.png"></image>
+		</view>
+		<view class="title">画加</view>
+		<view></view>
+	</view>
+</view>
+<view style="width:100%;height:{{statusBarHeight+titleBarHeight}}px"></view>
+<view class="loginTips" wx:if="{{isShowLoginTips}}">
+	<view class="tips">在画加，让你的创作更有价值</view>
+	<view class="btn" bindtap="toLogin">注册/登录</view>
+</view>
+<view bindtap="toRelease" class="addRelease"
+	style="bottom: calc({{isShowLoginTips?'110':'86'}}px + env(safe-area-inset-bottom))"></view>
+<view class="navMenu" wx:if="{{isTabFixed}}" style="position:fixed;top:{{statusBarHeight+titleBarHeight}}px">
+	<view class="navMenu-item {{tabData.select==index?'navMenu-click':''}}" wx:for="{{tabData.list}}" wx:key="index"
+		data-idx="{{index}}" bindtap="switchCommunityTab">
+		<view>{{item.txt}}</view>
+		<image wx:if="{{index==1}}" src="../../images/community/hot@2x.png"></image>
+	</view>
+	<view class="navMenu-line" style="left:{{tabData.select*132+224}}rpx"></view>
+	<view class="navMenu-arrow" bindtap="backToTop"></view>
+</view>
+<!-- 社区弹出层 -->
+<view class="actionSheet" wx:if="{{isShowSheet}}" bindtap="changeSheet">
+	<view class="dialog">
+		<button class="dialog-item" open-type="share">分享</button>
+		<view class="dialog-item" wx:if="{{userInfo.user.uid == currentDynamic.user.uid}}" bindtap="onDelete">删除</view>
+		<view class="dialog-item" wx:if="{{userInfo.user.uid != currentDynamic.user.uid}}" bindtap="toReport">举报</view>
+		<view class="dialog-item dialog-cancel" style="padding-bottom: calc(32rpx + env(safe-area-inset-bottom))"
+			catchtap="changeSheet">取消</view>
+	</view>
+</view>
+<!-- 主页面 -->
+<scroll-view bindrefresherrefresh="onLoad" bindscroll="bindscroll" bindscrolltolower="getCommunityList" scroll-y scroll-top="{{scrollTop}}"
+	refresher-enabled refresher-triggered="{{refreshFlag}}" id="box"
+	style="height: calc(100vh - 116rpx - {{statusBarHeight+titleBarHeight}}px - env(safe-area-inset-bottom))">
+
+	<!-- banner -->
+	<view class="bannerContent">
+		<swiper autoplay interval="2000" circular="true" class="bannerBox" wx:if="{{detail.banners.length != 0}}"
+			bindchange="changeBanner">
+			<swiper-item wx:for="{{detail.banners}}" wx:if="{{index<5}}" wx:key="index" bindtap="jumpPage"
+				data-link="{{item.link}}">
+				<image mode="aspectFill" src="{{item.img}}"></image>
+			</swiper-item>
+		</swiper>
+		<view class="dots">
+			<block wx:for="{{detail.banners}}" wx:key="index" wx:if="{{index<5}}">
+				<view class="dot{{index == bannerIdx ? ' active' : ''}}"></view>
+			</block>
+		</view>
+	</view>
+
+	<!-- 核心操作区 -->
+	<view class="module">
+		<view class="item" wx:for="{{moduleArr}}" bindtap="clickModule" wx:key="index" data-idx="{{index}}">
+			<image mode="widthFix" class="icon" src="../../images/home/{{item.icon}}"></image>
+			<view class="title">{{item.title}}</view>
+		</view>
+	</view>
+
+	<!-- 最新约稿 -->
+	<view class="newSwiper" wx:if="{{false && detail.newest_projects.length != 0}}">
+		<view class="tips">
+			<view style="font-weight: bold;">最新约稿</view>
+			<view class="touch" bindtap="manuscriptPage">
+				<view>全部</view>
+				<image src="../../images/input_arrow@2x.png"></image>
+			</view>
+		</view>
+		<swiper class="swiperBox" previous-margin="24rpx" next-margin="15rpx" bindchange="bindchange">
+			<swiper-item wx:for="{{detail.newest_projects}}" wx:key="index">
+				<view class="panel" bindtap="jump" data-id="{{item.id}}">
+					<view class="title">{{item.project_name}}</view>
+					<view class="tags">
+						<view class="type" wx:for="{{item.show_tags}}" wx:for-item="tag" wx:key="index">{{tag}}</view>
+					</view>
+					<view class="bottom">
+						<view class="time">截稿时间：{{item.end_date}}</view>
+						<view class="amount">￥{{item.min_price}}~{{item.max_price}}</view>
+					</view>
+				</view>
+			</swiper-item>
+		</swiper>
+		<view class="dots">
+			<block wx:for="{{newArr}}" wx:key="index">
+				<view class="dot{{index == currentSwiper ? ' active' : ''}}"></view>
+			</block>
+		</view>
+	</view>
+
+	<!-- 推荐画师 -->
+	<view class="recommend" wx:if="{{false}}" style="padding-bottom:{{isShowLoginTips?'100':'40'}}rpx">
+		<view class="tips">
+			<view style="font-weight: bold;">推荐画师</view>
+			<view class="touch" bindtap="jumpPage" data-link="/homePage/pages/paintersList/paintersList">
+				<view>全部</view>
+				<image src="../../images/input_arrow@2x.png"></image>
+			</view>
+		</view>
+		<painters-List listData="{{list}}" bind:changePanel="setPanel"></painters-List>
+		<view class="getMoreTips" bindtap="jumpPage" data-link="/homePage/pages/paintersList/paintersList">点我去看更多画师</view>
+	</view>
+
+	<!-- 话题 -->
+	<view class="gap"></view>
+	<view class="topic">
+		<navigator hover-class="none" url="/communityPage/page/topicDetail/topicDetail?id={{item.id}}" class="topic-item"
+			wx:for="{{topicList}}" wx:key="index">
+			<image class="icon" src="../../images/community/icon_index_topic@2x.png"></image>
+			<view class="txt">{{item.title}}</view>
+		</navigator>
+		<navigator hover-class="none" url="/communityPage/page/topicList/topicList" class="topic-item">
+			<image class="icon" src="../../images/community/icon_index_moretopic@2x.png"></image>
+			<view class="txt more">更多推荐话题</view>
+		</navigator>
+	</view>
+
+	<!-- 社区列表 -->
+	<view class="community" id="community" style="margin-bottom:{{isShowLoginTips?100:16}}rpx">
+		<view class="gap"></view>
+		<view class="navMenu" id="tab" wx:if="{{!isTabFixed}}">
+			<view class="navMenu-item {{tabData.select==index?'navMenu-click':''}}" wx:for="{{tabData.list}}" wx:key="index"
+				data-idx="{{index}}" bindtap="switchCommunityTab">
+				<view>{{item.txt}}</view>
+				<image wx:if="{{index==1}}" src="../../images/community/hot@2x.png"></image>
+			</view>
+			<view class="navMenu-line" style="left:{{tabData.select*132+224}}rpx"></view>
+		</view>
+		<view class="list">
+			<community-List list="{{communityList}}" needCutter="{{true}}" isFinished="{{finished}}" fromExternal="{{true}}"
+				bind:showMenu="changeSheet" bind:showEgg="showEgg" isFollow="{{tabData.select==0?true:false}}" id='community'>
+			</community-List>
+		</view>
+	</view>
+
+</scroll-view>

@@ -1,0 +1,13 @@
+<!--pages/login/login.wxml-->
+<view class="box">
+	<image mode="widthFix" src="../../images/logo@2x.png" class="logo"></image>
+	<view class="title">画加</view>
+</view>
+<button class="wechatLogin" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
+	<image mode="widthFix" src="../../images/wechat@2x.png" class="wx"></image>
+  <view>微信授权登录</view>
+</button>
+<view class="phoneLogin" bindtap="toPhoneLogin">
+	<image mode="widthFix" src="../../images/phone@2x.png" class="phone"></image>
+  <view>手机快捷登录</view>
+</view>

@@ -1,0 +1,189 @@
+@import '../../constants/style/global.less';
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: @footer-height;
+
+    .footer-wrap {
+        position: relative;
+        padding: 40px 0;
+        height: 100%;
+
+        .f-w1 {
+            position: relative;
+            height: 40px;
+        }
+
+        .f-w2 {
+            position: relative;
+            height: 105px;
+        }
+
+        .f-w3 {
+            position: relative;
+            height: 40px;
+            line-height: 40px;
+            color: #666;
+
+            a {
+                position: relative;
+                display: inline-block;
+                padding: 0 12px 0 16px;
+
+                span {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    height: 40px;
+                    line-height: 40px;
+                    color: #666;
+                }
+
+                &:not(:hover) {
+                    color: #666;
+                }
+
+                &:first-child {
+                    padding-left: 0;
+                }
+
+                &:last-child {
+                    padding-right: 0;
+                }
+            }
+        }
+
+        .footer-left {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .footer-right {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        .logo {
+            display: inline-block;
+            width: 90px;
+            height: 36px;
+            background-image: @logoBlack;
+            background-repeat: no-repeat;
+            background-size: 90px 36px;
+        }
+
+        .qrcode-btn {
+            margin-right: 30px;
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+
+        .message,
+        .copy-right {
+            font-size: 12px;
+            color: #999;
+
+            dt {
+                line-height: 24px;
+
+                a {
+                    color: #999;
+                }
+            }
+
+            .beian {
+                vertical-align: top;
+                display: inline-block;
+                margin-right: 4px;
+                width: 16px;
+                height: 24px;
+                background-image: url(../../statics/images/ico_beian.png);
+                background-size: 100% auto;
+                background-position: center center;
+                background-repeat: no-repeat;
+            }
+        }
+
+        .message {
+            margin-top: 13px;
+        }
+
+        .copy-right {
+            text-align: right;
+        }
+
+        .links {
+            position: relative;
+            margin-bottom: 15px;
+            height: 46px;
+            line-height: 46px;
+
+            .links-1,
+            .links-2,
+            .links-3,
+            .links-4 {
+                display: inline-block;
+                margin-right: 40px;
+                height: 46px;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+
+            .links-1 {
+                width: 90px;
+                background-image: url(../../statics/images/links_1.png);
+                background-size: 90px 46px;
+            }
+
+            .links-2 {
+                width: 165px;
+                background-image: url(../../statics/images/links_2.png);
+                background-size: 165px auto;
+            }
+
+            .links-3 {
+                width: 40px;
+                background-image: url(../../statics/images/links_3.png);
+                background-size: 40px 40px;
+            }
+
+            .links-4 {
+                margin-right: 0;
+                width: 109px;
+                background-image: url(../../statics/images/links_4.gif);
+                background-size: 109px 30px;
+            }
+        }
+    }
+}
+
+.qrcode-popver {
+    position: relative;
+    width: 140px;
+    min-height: 164px;
+    text-align: center;
+    font-size: 12px;
+    color: #666;
+
+    .qrcode-img {
+        margin-bottom: 8px;
+        width: 140px;
+        height: 140px;
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+:global(.global-footer) {
+    background: #f3f3f3;
+}

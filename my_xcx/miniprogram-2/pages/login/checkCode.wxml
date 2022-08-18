@@ -1,0 +1,15 @@
+<!--pages/login/checkCode.wxml-->
+<view class="title">输入验证码</view>
+<view class="tips">验证码已发送至{{regionCode}} {{phone}}</view>
+
+<view class="inputBox">
+	<label wx:for="{{4}}" wx:key="index" adjust-position="{{false}}" bindtap='onFocus' class="{{iptValue.length==index?'active':''}}">{{iptValue.length>=index+1?iptValue[index]:''}}</label>
+</view>
+
+<input class='hiddenIpt' type="number" maxlength="4" focus="{{isFocus}}" bindinput="setValue" value="{{iptValue}}"></input>
+
+<view class="countDown" style="{{bottom > 30? bottomNumber: ''}}">
+	<view class="time" wx:if="{{timing}}">{{duration}}秒</view>
+	<view class="time" wx:else bindtap="getCode">重新获取验证码</view>
+	<view class="explain" wx:if="{{timing}}">后重新获取验证码</view>
+</view>

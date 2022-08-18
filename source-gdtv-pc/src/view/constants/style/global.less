@@ -1,0 +1,66 @@
+@import '../../statics/css/variables.less';
+@logoWhite: url('../../statics/images/logo_white.png');
+@logoWhiteGrt: url('../../statics/images/logo_white_grt.png');
+@logoBlack: url('../../statics/images/logo_black.png');
+@logoGray: url('../../statics/images/logo_grey.png');
+
+.defaultBackground {
+    background-image: @logoGray;
+    background-size: 80px 32px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.textOverflow {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.dot {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    content: '';
+    width: 6px;
+    height: 6px;
+    background-color: @default-text-color;
+    border-radius: 50%;
+}
+
+.navBarIconList {
+    :global {
+        .menu-tv {
+            background-image: url('../../statics/images/menu_tv.png');
+
+            &:hover {
+                background-image: url('../../statics/images/menu_tv_active.png');
+            }
+        }
+
+        .menu-radio {
+            background-image: url('../../statics/images/menu_radio.png');
+
+            &:hover {
+                background-image: url('../../statics/images/menu_radio_active.png');
+            }
+        }
+
+        .menu-programs {
+            background-image: url('../../statics/images/menu_programs.png');
+
+            &:hover {
+                background-image: url('../../statics/images/menu_programs_active.png');
+            }
+        }
+
+        .menu-programs-all {
+            background-image: url('../../statics/images/menu_programs_all.png');
+
+            &:hover {
+                background-image: url('../../statics/images/menu_programs_all_active.png');
+            }
+        }
+    }
+}

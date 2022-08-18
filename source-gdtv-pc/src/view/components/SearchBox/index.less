@@ -1,0 +1,78 @@
+@import "../../statics/css/variables.less";
+@search-button-width: 80px;
+@search-box-height: 40px;
+@search-box-width-400: 400px;
+@search-box-width-280: 280px;
+@search-btn-color: #F12D37;
+
+.search-wrap {
+    &:before {
+        content: ' ';
+        display: inline-block;
+        width: 0;
+        height: 60px;
+        vertical-align: middle;
+        overflow: hidden;
+        visibility: hidden;
+    }
+
+    &.opaque {
+        .search-box {
+            :global {
+                .ant-input {
+                    background-color: #eee;
+                    color: #282828;
+                }
+            }
+        }
+    }
+}
+
+.search-box {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: @search-box-height;
+    background: rgba(250, 250, 250, 0.3);
+    border-radius: @search-box-height/2;
+    vertical-align: middle;
+    overflow: hidden;
+
+    &:before {
+        content: ' ';
+        display: inline-block;
+        width: 0;
+        height: 100%;
+        vertical-align: middle;
+        overflow: hidden;
+        visibility: hidden;
+    }
+
+    .keywords {
+        display: inline-block;
+        width: 100%;
+        height: @search-box-height;
+        line-height: @search-box-height;
+        text-align: left;
+
+        :global {
+            .ant-input {
+                padding-left: 20px;
+                height: @search-box-height;
+                line-height: 1;
+                font-size: 14px;
+                color: #fff;
+                background: transparent;
+                border: none;
+            }
+
+            .ant-input-group-addon {
+                background: @search-btn-color;
+
+                .ant-btn {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,41 @@
+@import "../../statics/css/variables.less";
+
+.fast-entry {
+    position: relative;
+    height: @header-height;
+    cursor: pointer;
+
+    .title {
+        position: relative;
+        display: block;
+        font-size: 16px;
+
+        img {
+            position: relative;
+            top: -2px;
+            width: 16px;
+            height: 16px;
+        }
+    }
+}
+
+.content {
+    .nav-col {
+        display: inline-block;
+        vertical-align: top;
+        margin-right: 10px;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    .channel {
+        display: block;
+        margin: 6px;
+        max-width: 56px;
+        height: 24px;
+        line-height: 24px;
+        overflow: hidden;
+    }
+}

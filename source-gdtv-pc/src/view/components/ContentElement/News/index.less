@@ -1,0 +1,88 @@
+@import '../index.less';
+
+@coverWight: 212px;
+@elHeight: 120px;
+@elHeightVertical: 318px;
+
+.el-news {
+    .common-element();
+
+    .cover-box {
+        position: absolute;
+        left: 0;
+        width: @coverWight;
+        height: @elHeight;
+        border-radius: 8px;
+        background: #e4e4e4;
+        overflow: hidden;
+        z-index: 1;
+
+        &.vertical {
+            height: @elHeightVertical;
+
+            +.detail {
+                height: @elHeightVertical;
+            }
+        }
+
+        .tab-rb {
+            position: absolute;
+            right: 8px;
+            bottom: 8px;
+            padding: 0 6px;
+            max-width: 60px;
+            height: 18px;
+            color: #fff;
+            font-size: 12px;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 9px;
+            overflow: hidden;
+        }
+
+        +.detail {
+            margin-left: @coverWight + 12px;
+            height: @elHeight;
+        }
+    }
+
+    .detail {
+        position: relative;
+
+        h2 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            line-height: 31px;
+
+            div {
+                display: inline-block;
+            }
+        }
+
+        .from {
+            margin-top: 10px;
+            line-height: 22px;
+            font-size: 12px;
+            color: #999;
+
+            &>:nth-child(n) {
+                display: inline-block;
+                margin-right: 30px;
+            }
+
+            span {
+                color: #333;
+            }
+        }
+
+        .sub-title {
+            position: relative;
+            margin-top: 16px;
+            min-height: 44px;
+            line-height: 22px;
+            font-size: 14px;
+            word-break: break-all;
+        }
+    }
+}

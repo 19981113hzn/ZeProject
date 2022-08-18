@@ -1,0 +1,59 @@
+.user-history {
+    position: relative;
+    display: inline-block;
+
+    .btn-history {
+        padding: 0 18px;
+        height: 36px;
+        color: #fff;
+        font-size: 14px;
+        background: rgba(0, 0, 0, 0.3);
+        border: none;
+        cursor: default;
+        &:not(:visited){
+            color: #fff;
+        }
+    }
+
+    .user-history-popover {
+        width: 300px;
+        height: 410px;
+        overflow: hidden;
+
+        .history-date {
+            h4 {
+                padding: 4px 0 16px 0;
+                font-weight: bold;
+            }
+
+            .record {
+                margin-bottom: 16px;
+            }
+        }
+    }
+
+    .empty-popover {
+        position: relative;
+        padding-bottom: 16px;
+        width: 208px;
+        text-align: center;
+        overflow: hidden;
+
+        .bg {
+            margin: 20px auto 0;
+            width: 50px;
+            height: 50px;
+        }
+
+        .text {
+            padding-top: 12px;
+            height: 60px;
+            color: #999;
+        }
+
+        .btn-open-login {
+            margin: 0 auto;
+            width: 160px;
+        }
+    }
+}

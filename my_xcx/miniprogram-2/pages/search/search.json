@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "painters-List":"../../component/paintersList/index",
+    "waterfall-Flow":"../../component/waterfallFlow/index"
+  },
+  "navigationBarTitleText": "搜索"
+}

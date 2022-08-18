@@ -1,0 +1,6 @@
+{
+    "output": "./dist/cdn",
+    "key": "platforms/gdtv",
+    "bucket": "image-grtn/sitecdn/",
+    "dstUrl": "http://img.gdtv.cn/sitecdn/"
+}

@@ -1,0 +1,76 @@
+page{
+    width: 100%;
+    background: #F3F7F7;
+}
+.title{
+    color:#2A2B2D;
+    font-size: 48rpx;
+    margin: 120rpx 0 40rpx 40rpx;
+}
+.tips{
+    color: #62676D;
+    font-size: 28rpx;
+    margin:0 0 60rpx 40rpx;
+}
+.inputBox{
+    width: calc(90% - 48rpx);
+    display: flex;
+    background: #fff;
+    align-items: center;
+    border-radius: 32rpx;
+    margin: 0 auto 60rpx;
+    padding: 40rpx 24rpx;
+    .code{
+        display: flex;
+        color: #2A2B2D;
+        font-size: 32rpx;
+        align-items: center;
+        margin-right: 30rpx;
+        &::after{
+            content: '';
+            width: 6rpx;
+            height: 6rpx;
+            margin-left: 12rpx;
+            display: inline-block;
+            border-top: 2rpx solid;
+            border-right: 2rpx solid;
+            border-color: #2A2B2D;
+            transform: rotate(135deg);
+        }
+    }
+    .showInput{
+        width: 100%;
+        font-size:36rpx;
+        color:#CACCD2;
+    }
+    .hasValue{
+        color: #2A2B2D;
+    }
+}
+.nextStep{
+    width: 90%;
+    display: flex;
+    margin: 0 auto;
+    font-size: 36rpx;
+    color: #C3C8CE;
+    padding: 26rpx 0;
+    align-items: center;
+    border-radius: 24rpx;
+    background: #EDEDED;
+    justify-content: center;
+}
+.canClick{
+    color: #fff;
+    background: #02BDD1;
+}
+.bottomTips{
+    font-size: 24rpx;
+    color: #93989E;
+    position: fixed;
+    bottom: 88rpx;
+    width: 100%;
+    text-align: center;
+    span{
+        color: #6fa0fd;
+    }
+}

@@ -1,0 +1,94 @@
+@import '../variables.less';
+
+html {
+    --antd-wave-shadow-color: @primary-color;
+}
+
+a {
+    color: @default-text-color;
+
+    &:hover {
+        color: @primary-hover-color;
+    }
+
+    &:active {
+        color: @primary-active-color;
+    }
+}
+
+:global {
+
+    .ant-btn-link:not(:hover) {
+        color: @primary-color;
+    }
+
+    .ant-btn,
+    .ant-radio-button-wrapper {
+
+        &:hover,
+        &:focus {
+            color: @primary-hover-color;
+            border-color: @primary-hover-color;
+        }
+
+        &:active {
+            color: @primary-active-color;
+            border-color: @primary-active-color;
+        }
+    }
+
+    .ant-btn-primary,
+    .ant-radio-group-solid .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
+        background-color: @primary-color;
+        border-color: @primary-color;
+
+        &:hover,
+        &:focus {
+            color: #fff;
+            background-color: @primary-hover-color;
+            border-color: @primary-hover-color;
+        }
+
+        &:active {
+            color: #fff;
+            background-color: @primary-active-color;
+        }
+    }
+
+    .ant-input:focus,
+    .ant-input:hover,
+    .ant-input-affix-wrapper:hover .ant-input:not(.ant-input-disabled),
+    .ant-checkbox-input:focus+.ant-checkbox-inner,
+    .ant-checkbox-wrapper:hover .ant-checkbox-inner,
+    .ant-checkbox:hover .ant-checkbox-inner {
+        border-color: @primary-color;
+    }
+
+    .ant-checkbox-wrapper {
+        .ant-checkbox-checked .ant-checkbox-inner {
+            background-color: @primary-color;
+            border-color: @primary-color;
+        }
+    }
+
+    .ant-tabs-nav {
+        .ant-tabs-tab-active {
+            color: @primary-color;
+        }
+
+        .ant-tabs-tab,
+        .ant-tabs-tab-active {
+            &:hover {
+                color: @primary-hover-color;
+            }
+
+            &:active {
+                color: @primary-active-color;
+            }
+        }
+
+        .ant-tabs-ink-bar {
+            background-color: @primary-color;
+        }
+    }
+}

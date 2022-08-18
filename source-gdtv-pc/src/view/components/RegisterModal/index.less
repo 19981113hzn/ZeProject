@@ -1,0 +1,68 @@
+.register-modal {
+    position: relative;
+
+    :global {
+        .ant-modal-body {
+            padding-left: 54px;
+            padding-right: 54px;
+
+            .ant-input {
+                padding-left: 0;
+                height: 36px;
+                border-radius: 0;
+                border-left: none;
+                border-right: none;
+                border-top: none;
+
+                &:focus {
+                    box-shadow: none;
+                }
+            }
+        }
+
+        .ant-tabs-content {
+            padding-top: 24px;
+        }
+    }
+
+    h4 {
+        margin-bottom: 24px;
+        padding: 12px 0;
+        font-weight: bold;
+    }
+
+    .field-code {
+        width: 180px;
+        margin-right: 18px;
+    }
+
+    .form-item-agree {
+        margin-bottom: 10px;
+        font-size: 12px;
+        text-align: center;
+        user-select: none;
+
+        label {
+            font-size: 12px;
+        }
+    }
+
+    .btn-get-code {
+        width: 128px;
+        height: 36px;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    .btn-forget-pwd {
+        position: absolute;
+        right: 0;
+    }
+
+    .btn-register {
+        margin-bottom: 24px;
+        height: 44px;
+        font-size: 14px;
+        font-weight: bold;
+    }
+}

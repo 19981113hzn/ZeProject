@@ -1,0 +1,97 @@
+@import '../../../constants/style/global.less';
+@import '../index.less';
+
+
+@coverWight: 268px;
+@elHeight: 152px;
+
+.el-tv-column {
+    .common-element();
+
+    .cover-box {
+        position: absolute;
+        left: 0;
+        width: @coverWight;
+        height: @elHeight;
+        border-radius: 8px;
+        background: #e4e4e4;
+        overflow: hidden;
+        z-index: 1;
+    }
+
+    .detail {
+        position: relative;
+        margin-left: @coverWight + 12px;
+        height: @elHeight;
+
+        h2 {
+            margin-bottom: 8px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+            line-height: 31px;
+
+            div {
+                display: inline-block;
+            }
+        }
+
+        .from {
+            margin-bottom: 16px;
+            line-height: 22px;
+            font-size: 12px;
+            color: #999;
+
+            &>:nth-child(n) {
+                display: inline-block;
+                margin-right: 30px;
+            }
+
+            span {
+                color: #333;
+            }
+        }
+
+        .desc {
+            position: relative;
+            margin-bottom: 12px;
+            min-height: 22px;
+            line-height: 22px;
+            font-size: 14px;
+            word-break: break-all;
+
+            b {
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 1;
+            }
+
+            .desc-text {
+                padding-left: 40px;
+                color: #595959;
+                background: #fff;
+            }
+        }
+
+        .news-list {
+            overflow: hidden;
+
+            .btn-news {
+                padding: 0 24px;
+                height: 40px;
+
+                span {
+                    display: block;
+                    .textOverflow();
+                }
+
+                &:hover,
+                &:focus {
+                    color: #fff;
+                    background-color: @primary-color;
+                }
+            }
+        }
+    }
+}

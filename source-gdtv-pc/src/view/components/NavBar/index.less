@@ -1,0 +1,99 @@
+@import "../../constants/style/global.less";
+
+.nav-bar-container {
+    background: #FAFAFA;
+
+    .nav-bar {
+        padding: 16px 0;
+        height: 150px;
+
+        .nav-bar-channel-list {
+            display: inline-block;
+            padding: 20px;
+            margin-left: -20px;
+        }
+
+        .nav-bar-icon-list {
+            padding: 20px 0;
+            .navBarIconList();
+
+            .nav-bar-icon {
+                float: right;
+                text-align: center;
+                overflow: hidden;
+
+                &:last-child {
+                    margin-right: 0;
+                }
+
+                .nav-bar-icon-cover {
+                    display: block;
+                    width: 56px;
+                    height: 56px;
+                    background-repeat: no-repeat;
+                    background-size: 100% 100%;
+                }
+            }
+        }
+
+        .open-more {
+            position: absolute;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.4);
+            z-index: 2;
+
+            .nav-bar-channel-group {
+                height: auto;
+            }
+        }
+
+        .nav-bar-channel-group {
+            display: inline-block;
+            vertical-align: top;
+            margin-right: 40px;
+            height: 80px;
+            font-size: 16px;
+            overflow: hidden;
+
+            &:first-child :first-child {
+                font-weight: bold;
+                font-size: 18px;
+            }
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            .nav-bar-channel {
+                display: block;
+                margin-top: 26px;
+                height: 24px;
+                max-width: 72px;
+                overflow: hidden;
+
+                &:first-child {
+                    margin-top: 0;
+                }
+            }
+        }
+    }
+}
+
+// <=1200 设备
+@media (max-width: (@screen-width-lg - 1)) {
+    .nav-bar-auto {
+        &:nth-child(n+5) {
+            display: none;
+        }
+    }
+}
+
+// <=1600 设备
+@media (max-width: (@screen-width-xl - 1)) {
+    .nav-bar-auto {
+        &:nth-child(n+7) {
+            display: none;
+        }
+    }
+}

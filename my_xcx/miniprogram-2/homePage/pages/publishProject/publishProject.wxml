@@ -1,0 +1,146 @@
+<!--homePage/pages/publishProject/publishProject.wxml-->
+<view class="publishProject">
+<!-- 自定义顶部导航栏 -->
+<view class="navigateContainer">
+  <view style="height:{{statusBarHeight}}px"></view>
+  <view class="navigateBar" style="height: {{titleBarHeight}}px;">
+    <image src="../../image/blackback@2x.png" class="icon" bindtap="goback"></image>
+    <view class="title">发布约稿</view>
+  </view>
+</view>
+<!-- 占位 -->
+<view style="height: {{statusBarHeight + titleBarHeight}}px;"></view>
+
+<!-- 表单区域 -->
+<view style="width: 100%;height: 100%;">
+<!-- 提示信息 -->
+<view class="explain">
+<image src="../../image/info!@2x.png"></image>
+<view>默认招募画师期限为31天，期限内您可在【工作版】关闭或打开招募开关.</view>
+</view>
+<!-- 约稿标题 -->
+<view class="inputTitle">
+  <input type="text" bindinput="titleInput" placeholder="输入标题25字内" class="text {{titleStatus ? 'textCaution' : ''}}" maxlength="25" placeholder-style="font-size:16px;color:#CACCD2"/>
+</view>
+<!-- 描述 图片 -->
+<view class="describe">
+  <!-- 描述 -->
+  <textarea placeholder="输入需求描述（10-1000字）,参考例图5M以内，最多10张如需上传其他格式文件，请去web端操作" bindinput="textareaInput" 
+  placeholder-style="font-size: 16px;color: #CACCD2;" 
+  minlength="10" maxlength="1000" class="text"
+  >
+  </textarea>
+  <!-- 添加图片 -->
+  <view class="uploading">
+      <view class="picture" wx:for="{{imgList}}" wx:key="index"
+      style="{{index == 2 || index == 5 || index == 8? 'margin-right: 0;': ''}}"
+      >
+      <image mode="aspectFill" src="{{item.work_url}}"></image>
+      <image src="../../image/input_close@2x.png" class="icon" bindtap="deletePic" data-index="{{index}}"></image>
+      </view>
+      <view class="chooseWrapper" wx:if="{{imgList.length < 10}}">
+        <view class="choose" bindtap="photoAlbum">
+          <image src="../../image/add_pic@2x.png" class="icon"></image>
+        </view>
+      </view>
+  </view>
+</view>
+<!-- 约稿基础信息 -->
+<view class="information">
+  <view wx:for="{{requireds}}" wx:key="index" wx:if="type" class="message {{index ? 'pack' : ''}}">
+    <view class="label">{{item.title}}</view>
+    <view bindtap="pleaseSelect" style="display: flex;align-items: center;" data-index="{{index}}" style="display: flex;align-items: center;">
+      <view class="select" wx:if="{{index !== 1}}">
+        {{item.message ? item.message : item.hint}}
+      </view>
+   
+     <view class="section" wx:if="{{index === 1}}">
+      	<picker mode="date" start="{{startDate}}" bindchange="bindDateChange">
+							<view class="select" style="display: flex;align-items: center;">
+								{{item.message? item.message: item.hint}}
+								<image src="../../image/{{item.icon}}" wx:if="{{item.icon}}" />
+							</view>
+						</picker>
+      </view>
+      <image src="../../image/{{item.icon}}" wx:if="{{item.icon && index !== 1}}"></image>
+    </view>
+    <switch wx:if="{{item.select}}" color="#02bdd1" bindchange="switchChange"></switch>
+  </view>
+</view>
+<!-- 单张稿酬预算弹层 -->
+<view class="monolayer" wx:if="{{status[0].statu}}">
+<view class="title">
+选择单张稿酬预算
+</view>
+<!-- 选择价格区间 -->
+<view class="content" wx:for="{{remunerations}}" wx:key="index" bindtap="selectPrice" data-index="{{index}}" data-mark="{{0}}" wx:if="{{item.type > 1}}">
+<view class="price">{{item.title}}</view>
+<view class="middleContent">{{item.describe}}</view>
+<image mode="aspectFill" wx:if="{{item.statu}}" src="../../image/{{item.icon}}"></image>
+</view>
+<!-- 自定义 -->
+<view class="custom" bindtap="pleaseSelect" wx:for="{{remunerations}}" wx:key="index" wx:if="{{item.type <= 1}}">
+  <view class="desc">{{item.title}}</view>
+				<view class="price" wx:if="{{item.describe}}">{{item.describe}}</view>
+				<image mode="aspectFill" wx:if="{{item.statu}}" src="../../images/{{item.icon}}"></image>
+</view>
+<view class="line"></view>
+<view class="close" bindtap="maskLayer">
+<view class="text">取消</view>
+</view>
+
+</view>
+
+<!-- 自定义单张稿酬 -->
+<view></view>
+
+<!-- 稿件用途选择 -->
+<view class="monolayer" wx:if="{{status[2].statu}}">
+<view class="title">稿件用途选择</view>
+<view class="content" wx:for="{{purposes}}" wx:key="index" data-index="{{index}}" bindtap="purposeSelect" data-mark="{{2}}">
+<view class="leftContent" style="flex: 1;">{{item.title}}</view>
+<image mode="aspectFill" wx:if="{{item.statu}}" src="../../image/{{item.icon}}"></image>
+</view>
+<view class="line"></view>
+<view class="close" bindtap="maskLayer">
+<view class="text">取消</view>
+</view>
+</view>
+
+<!-- 遮罩层 -->
+<view class="maskLayer" catchtouchmove="jxc" wx:if="{{maskLayerStatus}}" bindtap="maskLayer"></view>
+
+
+
+</view>
+
+
+<!-- 离开提示框 -->
+<view class="layer-backdrop" wx:if="{{hintStatus}}"> 
+  <view class="modal">
+    <view class="modal-body">
+      <view class="content">约稿尚未发布，您确定离开吗？</view>
+      <view style="display: flex;width: 100%;">
+        <view class="cancel" bindtap="cancel">取消</view>
+        <view class="btn" bindtap="confirm">确定</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 画师平台订单服务协议 -->
+<view class="protocol">
+<checkbox-group bindchange="checkboxChange">
+  <checkbox name="Fruit" type="radio" checked></checkbox>
+</checkbox-group>
+<view class="rule">我已阅读并同意<text class="active" bindtap="protocol">《画师平台订单服务协议》
+</text></view>
+</view>
+
+<!-- 发布约稿 -->
+<view class="button {{btnPublishStatus ? 'buttonActive' : ''}}" bindtap="{{btnPublishStatus ? 'publishVerify' : ''}}">
+  <view class="{{btnPublishStatus ? 'publishActive' : 'publish'}}">发布</view>
+</view>
+<view style="height:calc(40rpx + env(safe-area-inset-bottom))"></view>
+
+</view>

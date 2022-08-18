@@ -1,0 +1,53 @@
+@import '../index.less';
+
+.image-container {
+    .image-warpper();
+
+    .icon-transcode {
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        background-image: url('../../../statics/images/upload_transcode.png');
+        width: 36px;
+        height: 36px;
+        display: block;
+    }
+
+    .icon-transcode-error {
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        background-image: url('../../../statics/images/upload_error.png');
+        width: 36px;
+        height: 36px;
+        display: block;
+    }
+
+    img {
+        max-width: 150px;
+        max-height: 100px;
+    }
+
+    &.img {
+        cursor: pointer;
+        position: relative;
+
+        .masked {
+            z-index: 15;
+            .icon-check {
+                font-size: 20px;
+                color: #fff;
+            }
+
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}

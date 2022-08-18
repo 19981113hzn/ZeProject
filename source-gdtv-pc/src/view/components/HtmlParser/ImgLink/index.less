@@ -1,0 +1,38 @@
+.img-link-section {
+    .insert-link {
+        position: relative;
+        display: block;
+        text-align: center;
+
+        .img-warpper {
+            position: relative;
+            display: inline-block;
+            margin: 0 auto;
+
+            .href {
+                position: absolute;
+                right: 5%;
+                bottom: 10px;
+                width: 94px;
+                height: 26px;
+                line-height: 26px;
+                text-align: center;
+                color: #fff;
+                font-size: 12px;
+                background-color: #000;
+                border-radius: 6px;
+                opacity: 0.6;
+
+                :global {
+                    .anticon {
+                        margin-right: 4px;
+                    }
+                }
+            }
+
+            img {
+                margin: 0;
+            }
+        }
+    }
+}

@@ -1,0 +1,12 @@
+<!--pages/login/inputPhone.wxml-->
+<view class="title">验证码登录</view>
+<view class="tips">未注册的手机号将自动创建账号</view>
+<view class="inputBox">
+  <view class="code" bindtap="changeRegion">{{regionCode}}</view>  
+  <!-- <view class="showInput {{showPhone?'hasValue':''}}" wx:if="{{!isFocus}}" bindtap="onFocus">{{showPhone?showPhone:'输入手机号'}}</view> -->
+  <input value="{{phoneValue}}" bindfocus="keyboard" focus="{{isFocus}}" type="number" bindinput="bindinput" bindblur="bindblur" class="input" placeholder="输入手机号" placeholder-style="font-size:36rpx;color:#CACCD2;"></input>
+</view>
+<view class="nextStep {{isCheck?'canClick':''}}" bindtap="nextStep">下一步</view>
+<view class="bottomTips" bindtap="toWebView">
+  <view>登录注册即代表同意<span data-type="0">《用户协议》</span>和<span data-type="1">《隐私政策》</span></view>
+</view>

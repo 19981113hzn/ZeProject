@@ -1,0 +1,64 @@
+{
+  "pages":[
+    "pages/home/home",
+    "pages/my/my",
+    "pages/login/login",
+    "pages/login/inputPhone",
+    "pages/login/selectRegion",
+    "pages/login/checkCode",
+    "pages/search/search",
+    "pages/search/search_bak"
+  ],
+  "subPackages": [
+    {
+      "root": "communityPage",
+      "pages": [
+        "page/releaseDynamic/releaseDynamic",
+        "page/dynamicDetails/dynamicDetails",
+        "page/report/report",
+        "page/replyDetail/replyDetail"
+      ]
+    },
+    {
+      "root": "homePage",
+      "pages": [
+        "pages/userHomePage/userHomePage",
+        "pages/workDetails/workDetails",
+        "pages/publishProject/publishProject",
+        "pages/manuscripts/manuscriptslist/manuscriptslist",
+        "pages/paintersList/paintersList",
+        "pages/worksList/worksList",
+        "pages/manuscripts/manuscriptsDetails/manuscriptsDetails"
+      ] 
+    },
+    {
+      "root": "myPage",
+      "pages": [
+        "pages/homepage/homepage"
+      ]
+    }
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "custom": true,
+    "borderStyle": "white",
+    "color": "#93989E",
+    "selectedColor": "#02BDD1",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

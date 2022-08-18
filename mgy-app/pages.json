@@ -1,0 +1,1149 @@
+{
+	"easycom": {
+		"^u-(.*)": "@/uni_modules/uview-ui/components/u-$1/u-$1.vue"
+	},
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		
+		{
+			"path": "pages/login/judeLojginPag",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		},
+		{
+			"path": "pages/assist/businessManagement/relatedContact",
+			"style": {
+				"navigationBarTitleText": "主要联系人",
+				"navigationStyle": "custom",
+				"app-plus": {
+					"titleView": false
+				}
+			}
+		},
+		{
+			"path": "pages/workbench/operationManagement/opportunityManagement/detail",
+			"style": {
+				"navigationBarTitleText": "资料详情",
+				"navigationStyle": "custom",
+				"app-plus": {
+					"titleView": false
+				}
+			}
+		}, {
+			"path": "pages/workbench/operationManagement/opportunityManagement/changeSalesStatus",
+			"style": {
+				"navigationBarTitleText": "变更销售状态",
+				"navigationStyle": "custom",
+				"app-plus": {
+					"titleView": false
+				}
+			}
+		}, {
+			"path": "pages/workbench/operationManagement/opportunityManagement/confirmQuotation",
+			"style": {
+				"navigationBarTitleText": "确认报价",
+				"navigationStyle": "custom",
+				"app-plus": {
+					"titleView": false
+				}
+			}
+		},
+
+		{
+			"path": "pages/main/main",
+			"style": {
+				"navigationBarTitleText": "物壹蘑菇云",
+				"navigationStyle": "custom",
+				"app-plus": {
+					"titleView": false
+				}
+			}
+		},
+		{
+			"path": "pages/login/login",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom",
+				"app-plus": {
+					"titleView": false
+				}
+			}
+
+		},
+		{
+			"path": "pages/home/home",
+			"style": {
+				"navigationStyle": "custom",
+				"app-plus": {
+					"titleView": false
+				}
+			}
+		},
+		{
+			"path": "pages/personalCenter/personalCenter",
+			"style": {
+				"navigationStyle": "custom",
+				"app-plus": {
+					"titleView": false
+				}
+			}
+
+		},
+		{
+			"path": "pages/personalCenter/feedBack",
+			"style": {
+				"navigationStyle": "custom",
+				"app-plus": {
+					"titleView": false
+				}
+			}
+
+		},
+		{
+			"path": "pages/assist/assist",
+			"style": {
+				"navigationStyle": "custom",
+				"app-plus": {
+					"titleView": false
+				}
+			}
+
+		},
+		{
+			"path": "pages/workbench/workbench",
+			"style": {
+				"navigationStyle": "custom",
+				"app-plus": {
+					"titleView": false
+				}
+			}
+
+		},
+		{
+			"path": "pages/news/news",
+			"style": {
+				"navigationStyle": "custom",
+				"app-plus": {
+					"titleView": false
+				}
+			}
+
+
+		},
+		{
+			"path": "pages/personalCenter/personalCenter",
+			"style": {
+				"navigationStyle": "custom",
+				"app-plus": {
+					"titleView": false
+				}
+			}
+
+		},
+		{
+			"path": "pages/personalCenter/personalHome",
+			"style": {
+				"navigationBarTitleText": "个人中心",
+				"navigationStyle": "custom",
+				"app-plus": {
+					"titleView": false
+				}
+			}
+
+		},
+		{
+			"path": "pages/personalCenter/accountSettings/accountSettings",
+			"style": {
+				"navigationBarTitleText": "账号设置",
+				"enablePullDownRefresh": false
+			}
+
+		},
+		{
+			"path": "pages/personalCenter/accountSettings/homeSettings",
+			"style": {
+				"navigationBarTitleText": "首页设置",
+				"enablePullDownRefresh": false
+			}
+
+		},
+		{
+			"path": "pages/personalCenter/accountSettings/reminderSettings",
+			"style": {
+				"navigationBarTitleText": "提醒设置",
+				"enablePullDownRefresh": false
+			}
+
+		}
+
+		,
+		{
+			"path": "pages/workbench/accountingManagement/accountingManagement",
+			"style": {
+				"navigationBarTitleText": "财务管理",
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+			}
+
+		},
+		{
+			"path": "pages/workbench/accountingManagement/quotationManagement/quotationManagement",
+			"style": {
+				"navigationBarTitleText": "报价管理",
+				"navigationStyle": "custom"
+			}
+
+		},
+		{
+			"path": "pages/workbench/accountingManagement/quotationManagement/detail",
+			"style": {
+				"navigationBarTitleText": "报价详情",
+				"navigationStyle": "custom"
+			}
+
+		},
+		{
+			"path": "pages/workbench/accountingManagement/quotationManagement/addNewQuotation",
+			"style": {
+				"navigationBarTitleText": "新建报价",
+				"navigationStyle": "custom"
+			}
+
+		},
+		{
+			"path": "pages/workbench/accountingManagement/costManagement/costManagement",
+			"style": {
+				"navigationBarTitleText": "费用管理",
+				"navigationStyle": "custom"
+			}
+
+		},
+		{
+			"path": "pages/workbench/accountingManagement/costManagement/addCost",
+			"style": {
+				"navigationBarTitleText": "新建费用单",
+				"navigationStyle": "custom",
+				"app-plus": {
+					"titleView": false
+				}
+			}
+
+		},
+		{
+			"path": "pages/workbench/accountingManagement/costManagement/feeDetails",
+			"style": {
+				"navigationBarTitleText": "费用详情",
+				"navigationStyle": "custom",
+				"app-plus": {
+					"titleView": false
+				}
+			}
+
+		},
+		{
+			"path": "pages/assist/documentManagement/openFile",
+			"style": {
+				"navigationBarTitleText": "",
+				"navigationStyle": "custom"
+			}
+
+		},
+		{
+			"path": "pages/workbench/processCenter/approvalResult",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		},
+		{
+			"path": "pages/workbench/accountingManagement/reimburseManagement/reimburseManagement",
+			"style": {
+				"navigationBarTitleText": "报销管理",
+
+				"navigationStyle": "custom"
+			}
+
+		},
+		{
+			"path": "pages/workbench/accountingManagement/reimburseManagement/addReimburse",
+			"style": {
+				"navigationBarTitleText": "新建报销单",
+				"navigationStyle": "custom",
+				"app-plus": {
+					"titleView": false
+				}
+			}
+
+		},
+		{
+			"path": "pages/workbench/accountingManagement/reimburseManagement/reimbursementDetails",
+			"style": {
+				"navigationBarTitleText": "报销单详情",
+				"navigationStyle": "custom"
+			}
+
+		},
+		{
+			"path": "pages/workbench/processCenter/processCenter",
+			"style": {
+				"navigationBarTitleText": "流程中心",
+				"enablePullDownRefresh": false
+			}
+
+		},
+		{
+			"path": "pages/workbench/processCenter/needToBeDealtWith",
+			"style": {
+				"navigationBarTitleText": "我的待办",
+				"navigationStyle": "custom"
+			}
+
+		},
+		{
+			"path": "pages/workbench/processCenter/toBeRead",
+			"style": {
+				"navigationBarTitleText": "我的待阅",
+				"navigationStyle": "custom"
+			}
+
+		},
+		{
+			"path": "pages/workbench/accountingManagement/reimburseManagement/revokeApproval",
+			"style": {
+				"navigationBarTitleText": "撤销审批",
+				"navigationStyle": "custom"
+
+			}
+
+		}
+
+		,
+		{
+			"path": "pages/workbench/processCenter/myApplication",
+			"style": {
+				"navigationBarTitleText": "我的申请",
+				"navigationStyle": "custom"
+			}
+
+		},
+		{
+			"path": "pages/filter-all/filter-all",
+			"style": {
+				//"navigationBarTitleText": "全部筛选",
+				"navigationStyle": "custom"
+			}
+
+		},
+		{
+			"path": "pages/workbench/accountingManagement/reimburseManagement/selectCost",
+			"style": {
+				"navigationBarTitleText": "选择费用",
+				"navigationStyle": "custom"
+			}
+
+		},
+		{
+			"path": "pages/filter-all/select-more",
+			"style": {
+				"navigationBarTitleText": "",
+				"navigationStyle": "custom"
+			}
+
+		},
+		{
+			"path": "pages/workbench/processCenter/approvalResult",
+			"style": {
+				"navigationBarTitleText": "",
+				"navigationStyle": "custom"
+			}
+
+		},
+		{
+			"path": "pages/assist/documentManagement/documentManagement",
+			"style": {
+				"navigationBarTitleText": "文档管理",
+				"navigationStyle": "custom"
+			}
+
+
+		},
+		{
+			"path": "pages/assist/documentManagement/fileFolder",
+			"style": {
+				"navigationBarTitleText": "",
+				"navigationStyle": "custom"
+			}
+
+		},
+		{
+			"path": "pages/workbench/processCenter/approvalResult",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		},
+		// 产品列表
+		{
+			"path": "pages/product/index",
+			"style": {
+				"navigationBarTitleText": "产品列表",
+				"navigationStyle": "custom",
+				"app-plus": {
+					"titleView": false
+				}
+			}
+		},
+		{
+			"path": "pages/product/detail",
+			"style": {
+				"navigationBarTitleText": "产品详情",
+				"navigationStyle": "custom",
+				"app-plus": {
+					"titleView": false
+				}
+			}
+		},
+		{
+			"path": "pages/product/productCategory",
+			"style": {
+				"navigationBarTitleText": "产品分类",
+				"navigationStyle": "custom",
+				"app-plus": {
+					"titleView": false
+				}
+			}
+		},
+		{
+			// 供应商
+			"path": "pages/assist/documentManagement/fileDetail",
+			"style": {
+				"navigationBarTitleText": "",
+				"navigationStyle": "custom"
+			}
+
+		},
+		{
+			"path": "pages/supplier/index",
+			"style": {
+				"navigationBarTitleText": "供应商",
+				"navigationStyle": "custom",
+				"app-plus": {
+					"titleView": false
+				}
+			}
+		},
+		{
+			"path": "pages/supplier/detail",
+			"style": {
+				"navigationBarTitleText": "供应商详情",
+				"navigationStyle": "custom",
+				"app-plus": {
+					"titleView": false
+				}
+			}
+		},
+		{
+			"path": "pages/supplier/addSupplier",
+			"style": {
+				"navigationBarTitleText": "新建供应商",
+				"navigationStyle": "custom",
+				"app-plus": {
+					"titleView": false
+				}
+			}
+		},
+		{
+			"path": "pages/filter-all/supplierSelect",
+			"style": {
+				//"navigationBarTitleText": "全部筛选",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/review/index",
+			"style": {
+				"navigationBarTitleText": "预览",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/competitor/index",
+			"style": {
+				"navigationBarTitleText": "竞争对手",
+				"navigationStyle": "custom",
+				"app-plus": {
+					"titleView": false
+				}
+			}
+
+		},
+		{
+			"path": "pages/competitor/detail",
+			"style": {
+				"navigationBarTitleText": "竞争对手详情",
+				"navigationStyle": "custom",
+				"app-plus": {
+					"titleView": false
+				}
+			}
+		},
+		{
+			"path": "pages/competitor/addCompetitor",
+			"style": {
+				"navigationBarTitleText": "新建竞争对手",
+				"navigationStyle": "custom",
+				"app-plus": {
+					"titleView": false
+				}
+			}
+		},
+		{
+			"path": "pages/assist/customerManagement/customerManagement",
+			"style": {
+				"navigationBarTitleText": "客户档案",
+				"navigationStyle": "custom"
+			}
+
+		},
+		{
+			"path": "pages/assist/customerManagement/newFollowUp",
+			"style": {
+				"navigationBarTitleText": "写新跟进",
+				"navigationStyle": "custom"
+			}
+
+		},
+		{
+			"path": "pages/assist/customerManagement/newCustomer",
+			"style": {
+				"navigationBarTitleText": "新建客户",
+				"navigationStyle": "custom"
+			}
+
+		},
+		{
+			"path": "pages/assist/customerManagement/newContact",
+			"style": {
+				"navigationBarTitleText": "新建联系人",
+				"navigationStyle": "custom"
+			}
+
+		},
+		{
+			"path": "pages/assist/customerManagement/transferCustomers",
+			"style": {
+				"navigationBarTitleText": "转移客户",
+				"enablePullDownRefresh": false
+			}
+
+		},
+		{
+			"path": "pages/assist/customerManagement/customerDetails",
+			"style": {
+				"navigationBarTitleText": "客户详情",
+				"navigationStyle": "custom"
+			}
+
+		},
+		{
+			"path": "pages/assist/customerManagement/followUpDetail",
+			"style": {
+				"navigationBarTitleText": "跟进详情",
+				"navigationStyle": "custom"
+			}
+
+		},
+		{
+			"path": "pages/assist/customerManagement/contacts",
+			"style": {
+				"navigationBarTitleText": "联系人",
+				"navigationStyle": "custom"
+			}
+
+		},
+		{
+			"path": "pages/assist/customerManagement/contactsDetail",
+			"style": {
+				"navigationBarTitleText": "联系人详情",
+				"navigationStyle": "custom"
+			}
+
+		},
+		{
+			"path": "pages/assist/documentManagement/relevantAttachments",
+			"style": {
+				"navigationBarTitleText": "相关附件",
+				"navigationStyle": "custom"
+			}
+
+		},
+		{
+			"path": "pages/assist/customerManagement/relatedCustomers",
+			"style": {
+				"navigationBarTitleText": "关联客户",
+				"navigationStyle": "custom"
+			}
+
+		},
+		{
+			"path": "pages/product/productManagement/relatedProduct",
+			"style": {
+				"navigationBarTitleText": "关联产品",
+				"navigationStyle": "custom"
+			}
+
+		},
+		{
+			"path": "pages/assist/documentManagement/searchFile",
+			"style": {
+				"navigationBarTitleText": "搜索查询文件",
+				"navigationStyle": "custom"
+			}
+
+		},
+		{
+			"path": "pages/assist/documentManagement/movePosition",
+			"style": {
+				"navigationBarTitleText": "选择位置",
+				"navigationStyle": "custom"
+			}
+
+		},
+		{
+			"path": "pages/assist/documentManagement/sharedFiles",
+			"style": {
+				"navigationBarTitleText": "共享文件",
+				"navigationStyle": "custom"
+			}
+
+		},
+		{
+			"path": "pages/assist/documentManagement/searchFileByType",
+			"style": {
+				"navigationBarTitleText": "搜索查询文件(类型)",
+				"navigationStyle": "custom"
+			}
+
+		},
+		{
+			"path": "pages/workbench/operationManagement/opportunityManagement/opportunityManagement",
+			"style": {
+				"navigationBarTitleText": "商机管理",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/workbench/operationManagement/operationManagement",
+			"style": {
+				"navigationBarTitleText": "经营管理",
+				"enablePullDownRefresh": false
+			}
+
+		},
+		
+		{
+			"path": "pages/workbench/operationManagement/opportunityManagement/opportunityManagement",
+			"style": {
+				"navigationBarTitleText": "商机管理",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/workbench/operationManagement/contractManagement/contractManagement",
+			"style": {
+				"navigationBarTitleText": "合同管理",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/workbench/operationManagement/contractManagement/relatedContracts",
+			"style": {
+				"navigationBarTitleText": "关联合同",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/workbench/operationManagement/operationManagement",
+			"style": {
+				"navigationBarTitleText": "经营管理",
+				"enablePullDownRefresh": false
+			}
+
+		},
+		{
+			"path": "pages/workbench/operationManagement/opportunityManagement/addOpportunity",
+			"style": {
+				"navigationBarTitleText": "新建商机",
+				"navigationStyle": "custom"
+			}
+
+		},
+		{
+			"path": "pages/workbench/operationManagement/opportunityManagement/SWOTAnalysis",
+			"style": {
+				"navigationBarTitleText": "SWOT分析",
+				"navigationStyle": "custom"
+			}
+
+		}, {
+			"path": "pages/workbench/operationManagement/opportunityManagement/transferOpportunity",
+			"style": {
+				"navigationBarTitleText": "转移商机",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/workbench/operationManagement/opportunityManagement/addCollaboration",
+			"style": {
+				"navigationBarTitleText": "添加协作",
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+			}
+
+		}, {
+			"path": "pages/workbench/operationManagement/culeManagement/detail",
+			"style": {
+				"navigationBarTitleText": "资料详情",
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+			}
+
+		}, {
+			"path": "pages/news/sysNews",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+			}
+
+		}, {
+			"path": "pages/workbench/operationManagement/culeManagement/clueManagement",
+			"style": {
+				"navigationBarTitleText": "线索管理",
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+			}
+
+		}, {
+			"path": "pages/workbench/operationManagement/culeManagement/addClue",
+			"style": {
+				"navigationBarTitleText": "新建线索",
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+			}
+
+		},
+		{
+			"path": "pages/home/detail",
+			"style": {
+				"navigationBarTitleText": "销售漏斗详情",
+				"navigationStyle": "custom",
+				"app-plus": {
+					"titleView": false
+				}
+			}
+		},{
+			"path": "pages/filter-all/selectDept",
+			"style": {
+				"navigationBarTitleText": "所属部门",
+				"navigationStyle": "custom",
+				"app-plus": {
+					"titleView": false
+				}
+			}
+		},
+		{
+			"path": "pages/workbench/operationManagement/culeManagement/convertCustomer",
+			"style": {
+				"navigationBarTitleText": "转为客户",
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+			}
+
+		}
+	
+	    ,{
+			"path":"pages/workbench/operationManagement/operationalBlueprint/operationalBlueprint",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "销售作战蓝图",
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+            }
+            
+        }
+        ,{
+            "path" : "pages/workbench/operationManagement/operationalBlueprint/salesBattleBlueprint",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "销售作战蓝图",
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+            }
+            
+        },
+		{
+            "path" : "pages/workbench/accountingManagement/cashtransferSchemes/cashtransferSchemes",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "回款计划",
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+            }
+            
+        },
+		{
+            "path" : "pages/workbench/accountingManagement/cashtransferSchemes/cashplanDetail",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "回款计划详情",
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+            }
+            
+        },
+		{
+            "path" : "pages/workbench/accountingManagement/cashtransferSchemes/addCashtransfer",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "新增回款计划",
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+            }
+            
+        },
+		{
+            "path" : "pages/workbench/accountingManagement/cashtransferSchemes/cashRecordDetail",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "回款记录详情",
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+            }
+            
+        },
+		{
+            "path" : "pages/workbench/accountingManagement/cashtransferSchemes/addCollectionRecord",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "添加回款记录",
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+            }
+            
+        },
+		{
+            "path" : "pages/workbench/accountingManagement/collectionManagement/collectionManagement",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "回款管理",
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+            }
+            
+        },
+		{
+            "path" : "pages/workbench/accountingManagement/collectionManagement/collectionDetail",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "回款管理详情",
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+            }
+            
+        }
+        ,{
+            "path" : "pages/workbench/accountingManagement/paymentSchemes/paymentSchemes",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "付款计划",
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+            }
+            
+        },
+		{
+            "path" : "pages/workbench/accountingManagement/paymentSchemes/paymentDetail",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "付款计划详情",
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+            }
+            
+        },
+		{
+            "path" : "pages/workbench/accountingManagement/paymentSchemes/paymentRecordDetail",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "付款记录详情",
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+            }
+            
+        },
+		{
+            "path" : "pages/workbench/accountingManagement/paymentSchemes/addPaymentPlan",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "创建付款计划",
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+            }
+            
+        },
+		{
+            "path" : "pages/workbench/accountingManagement/paymentManagement/paymentManagement",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "付款管理",
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+            }
+            
+        },
+		{
+            "path" : "pages/workbench/accountingManagement/paymentManagement/paymentDetail",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "付款管理详情",
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+            }
+            
+        },
+		{
+            "path" : "pages/workbench/accountingManagement/paymentManagement/addPaymentRecord",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "添加付款记录",
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+            }
+            
+        },
+		
+		{
+            "path" : "pages/workbench/accountingManagement/invoiceManagement/invoiceManagement",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "发票管理",
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+            }
+            
+        },
+		{
+            "path" : "pages/workbench/operationManagement/operationalBlueprint/achievement",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "业绩目标",
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+            }
+            
+        }
+        ,{
+            "path" : "pages/workbench/operationManagement/operationalBlueprint/achievementDetail",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "业绩目标详情",
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+            }
+            
+        }
+        ,{
+            "path" : "pages/workbench/operationManagement/operationalBlueprint/addAchievement",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "业绩目标",
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+            }
+            
+        }
+        ,{
+            "path" : "pages/workbench/operationManagement/operationalBlueprint/selectCustomer",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "选择客户",//多选
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+            }
+            
+        }
+        ,{
+            "path" : "pages/workbench/operationManagement/operationalBlueprint/resourceAnalysis",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "资源分析",
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+            }
+            
+        }
+        ,{
+            "path" : "pages/workbench/operationManagement/operationalBlueprint/addResources",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "个人资源/厂商资源",
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+            }
+            
+        }
+        ,{
+            "path" : "pages/workbench/operationManagement/operationalBlueprint/promotionPlan",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "推荐计划",
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+            }
+            
+        }
+        ,{
+            "path" : "pages/workbench/operationManagement/operationalBlueprint/promotionPlanAdd",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "添加年度计划",
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+            }
+            
+        }
+        ,{
+            "path" : "pages/workbench/operationManagement/operationalBlueprint/associatedPlan",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "关联计划",
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+            }
+            
+        }
+        ,{
+            "path" : "pages/workbench/operationManagement/opportunityManagement/relatedQuotation",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "关联报价",
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+            }
+            
+        }
+        ,{
+            "path" : "pages/workbench/accountingManagement/invoiceManagement/myInvoice/myInvoice",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "我的发票",
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+            }
+            
+        },
+		{
+			"path": "pages/workbench/accountingManagement/invoiceManagement/myRise/addRise",
+			"style": 
+			{
+				"navigationBarTitleText": "新建抬头",
+				"navigationStyle": "custom",
+				"app-plus": {
+					"titleView": false
+				}
+			}
+		
+		},
+		{
+			"path": "pages/workbench/accountingManagement/invoiceManagement/myRise/riseDetail",
+			"style": 
+			{
+				"navigationBarTitleText": "抬头详情",
+				"navigationStyle": "custom",
+				"app-plus": {
+					"titleView": false
+				}
+			}
+		
+		},
+		{
+			"path": "pages/workbench/accountingManagement/invoiceManagement/invoiceApply/invoiceAdd",
+			"style": 
+			{
+				"navigationBarTitleText": "新建开票申请",
+				"navigationStyle": "custom",
+				"app-plus": {
+					"titleView": false
+				}
+			}
+		
+		},
+		{
+			"path": "pages/workbench/accountingManagement/invoiceManagement/invoiceApply/invoiceDetailed",
+			"style": 
+			{
+				"navigationBarTitleText": "开票明细",
+				"navigationStyle": "custom",
+				"app-plus": {
+					"titleView": false
+				}
+			}
+		
+		},
+		{
+			"path": "pages/workbench/accountingManagement/invoiceManagement/invoiceApply/SelectQuote",
+			"style": 
+			{
+				"navigationBarTitleText": "选择报价",
+				"navigationStyle": "custom",
+				"app-plus": {
+					"titleView": false
+				}
+			}
+		
+		},
+		{
+			"path": "pages/workbench/accountingManagement/invoiceManagement/invoiceApply/relatedProduct",
+			"style": 
+			{
+				"navigationBarTitleText": "选择产品",
+				"navigationStyle": "custom",
+				"app-plus": {
+					"titleView": false
+				}
+			}
+		
+		},
+		{
+			"path": "pages/workbench/accountingManagement/invoiceManagement/invoiceApply/invoicementDetails",
+			"style": 
+			{
+				"navigationBarTitleText": "开票申请",
+				"navigationStyle": "custom",
+				"app-plus": {
+					"titleView": false
+				}
+			}
+		
+		}
+    ],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarBackgroundColor": "#FFFFFF",
+		"backgroundColor": "rgba(242, 245, 249, 1)"
+	},
+	"condition": { //模式配置，仅开发期间生效
+		"current": 0, //当前激活的模式(list 的索引项)
+		"list": [{
+			"name": "", //模式名称
+			"path": "", //启动页面，必选
+			"query": "" //启动参数，在页面的onLoad函数里面得到
+		}]
+	}
+}

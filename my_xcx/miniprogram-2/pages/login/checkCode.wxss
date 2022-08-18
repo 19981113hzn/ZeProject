@@ -1,0 +1,62 @@
+page {
+  width: 100%;
+  background: #F3F7F7;
+}
+.title {
+  color: #2A2B2D;
+  font-size: 48rpx;
+  margin: 120rpx 0 40rpx 40rpx;
+}
+.tips {
+  color: #62676D;
+  font-size: 28rpx;
+  margin: 0 0 60rpx 40rpx;
+}
+.inputBox {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  margin: 0 auto 282rpx;
+  justify-content: space-between;
+}
+.inputBox label {
+  width: 120rpx;
+  height: 120rpx;
+  font-size: 50rpx;
+  color: #2A2B2D;
+  background: #fff;
+  text-align: center;
+  line-height: 120rpx;
+  border-radius: 12rpx;
+  box-shadow: 0 4rpx 24rpx 0 rgba(0, 0, 0, 0.06);
+}
+@keyframes animate {
+  100% {
+    opacity: 0;
+  }
+}
+.inputBox .active:after {
+  content: '';
+  display: inline-block;
+  height: 50rpx;
+  width: 4rpx;
+  margin-top: 35rpx;
+  background: #02BDD1;
+  animation: 0.8s animate infinite;
+}
+.hiddenIpt {
+  height: 0rpx;
+  width: 0rpx;
+  border: none;
+  margin: 0;
+}
+.countDown {
+  display: flex;
+  font-size: 24rpx;
+  color: #AFB4B8;
+  margin-left: 40rpx;
+  position: fixed;
+}
+.countDown .time {
+  color: #02BDD1;
+}

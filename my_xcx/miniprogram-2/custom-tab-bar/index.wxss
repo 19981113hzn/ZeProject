@@ -1,0 +1,28 @@
+.tabBar {
+  display: flex;
+  height: 98rpx;
+  position: relative;
+  background: #fff;
+  padding: 0 160rpx;
+  align-items: flex-end;
+  justify-content: space-between;
+  box-shadow: 0 -2px 6px 0 rgba(0, 0, 0, 0.03);
+}
+.tabBar-item {
+  display: flex;
+  font-size: 20rpx;
+  color: #93989E;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.tabBar-item .icon {
+  width: 52rpx;
+  height: 52rpx;
+}
+.tabBar-item .txt {
+  margin-top: 4rpx;
+}
+.tabBar-item .clickTxt {
+  color: #02BDD1;
+}

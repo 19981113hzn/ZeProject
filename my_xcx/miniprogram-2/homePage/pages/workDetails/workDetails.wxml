@@ -1,0 +1,66 @@
+<!--homePage/pages/workDetails/workDetails.wxml-->
+<view id="box">
+<!-- 导航栏 -->
+<view class="navigateContainer">
+  <view style="height: {{statusBarHeight}}px;"></view>
+  <view class="navigateBar" style="height: {{titleBarHeight}}px;">
+    <view class="leftIcon" style="height: {{menuHeight}}px; margin-bottom: {{menuBottom}}px;">
+      <view class="icon">
+        <image src="../../image/whiteback_arrow@2x.png" bindtap="toReturn"></image>
+        <image src="../../image/whitehome.png" bindtap="toHome"></image>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 展示面板 -->
+<swiper class="showWorks" current="{{current}}" bindchange="bindchange" data-idx="{{index}}">
+  <swiper-item wx:for="{{list}}" wx:key="index">
+    <image src="{{item.file_url}}?imageView&thumbnail=1000x0" wx:if="{{!item.deleted}}" mode="aspectFit" data-idx="{{index}}" bindtap="viewImg">
+    </image>
+    <view class="errorImg" wx:else>
+      <image src="../../image/none_huashi"></image>
+    </view>
+  </swiper-item>
+</swiper>
+<!-- 操作面板 -->
+<view class="panel">
+<view style="display: flex;">
+<view class="info">
+<image class="headImg" src="{{paintersInfo.headImg}}" mode="aspectFill"></image>
+<view class="name">{{paintersInfo.name}}</view>
+<image class="arrow" src="../../image/whiterightarrow@2x.png" mode="widthFix"></image>
+</view>
+
+
+</view>
+<view class="tag">
+  <view class="tags" wx:for="{{pageData.show_tags}}" wx:key="index">{{item}}</view>
+</view>
+<view class="desc"></view>
+
+<!-- 违规作品提示 -->
+<view class="illegal"></view>
+
+<!-- 操作 -->
+<view class="clickIcon" style="{{(mode=='list'&& isMe)?'justify-content: flex-end!important;':''}}">
+<view class="left" wx:if="{{mode == 'page' && isMe}}">
+  <image class="delete"></image>
+  <image class="edit"></image>
+</view>
+<view class="left" wx:if="{{!isMe}}" bindtap="onReport">
+  <image class="report delete" src="../../image/report@2x.png" mode="aspectFit"></image>举报
+</view>
+<view class="right">
+<view class="tipsPopup" wx:if="{{isShowTips}}" bindtap="onShowTips">
+  <text>本作品版权归画师本人所有，如有疑问或需要获取作品的合法授权，请联系客服处理。\n画加平台重视图片版权保护，未经许可盗用作品平台将追究其法律责任。</text>
+</view>
+<image class="question" src="../../image/info@2x.png" mode="aspectFit" bindtap="onShowTips"></image>
+<view class="like">
+  <image class="likeImg" src="/images/home/{{pageData.liked ? 'likeon' : 'likeoff'}}@2x.png" bindtap="onLike"></image>
+  <view>{{pageData.like_count}}</view>
+</view>
+</view>
+</view>
+
+</view>
+</view>

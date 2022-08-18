@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "community-list":"../../../component/communityList/communityList",
+    "my-focus":"../../../component/myFocus/myFocus"
+  },
+  "navigationStyle": "custom"
+}

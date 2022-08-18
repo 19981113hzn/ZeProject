@@ -1,0 +1,247 @@
+@import "../../constants/style/global.less";
+
+.video-content {
+	.live-over-tips {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		color: #fff;
+		font-size: 18px;
+		transform: translate(-50%, -50%);
+	}
+
+	.video-content-warpper {
+		width: 100%;
+		background: #1C1C1C;
+		padding: 60px 0 70px 0;
+	}
+
+	h3 {
+		font-size: 16px;
+		font-family: MicrosoftYaHei-Bold;
+		font-weight: bold;
+		color: rgba(255, 255, 255, 1);
+		line-height: 21px;
+		padding: 15px 20px 15px;
+		display: flex;
+		align-items: center;
+		height: 60px;
+	}
+
+	.video-detail-box {
+		.video-title {
+			font-size: 24px;
+			font-family: MicrosoftYaHei;
+			color: rgba(245, 245, 245, 1);
+			line-height: 32px;
+			padding-top: 30px;
+			padding-bottom: 50px;
+		}
+
+		.relative-video-box {
+			position: absolute;
+			top: 0;
+			right: 0;
+			overflow: hidden;
+			width: 300px;
+			height: 100%;
+			background: #121212;
+			display: flex;
+			flex-direction: column;
+
+			.fix-position {
+				//position: absolute;
+				//top: 0;
+				width: 100%;
+				z-index: 1;
+				background: #121212;
+			}
+
+			li {
+				width: 100%;
+				overflow: hidden;
+				position: relative;
+				padding-left: 130px;
+				width: 300px;
+				height: 89px;
+				background: #000;
+				color: #fff;
+				cursor: pointer;
+
+				&:nth-of-type(2n+1) {
+					background: rgba(41, 41, 41, 0.3);
+				}
+
+				&:hover {
+					color: @primary-color;
+				}
+
+				.img-box {
+					position: absolute;
+					left: 20px;
+					top: 16px;
+					width: 100px;
+					height: 56px;
+					border-radius: 8px;
+					border: 1px solid rgba(51, 51, 51, 1);
+
+					img {
+						width: 100%;
+						height: 100%;
+						display: block;
+					}
+				}
+
+				.text-box {
+					font-size: 12px;
+					font-family: MicrosoftYaHei;
+					line-height: 16px;
+					padding-top: 18px;
+					padding-right: 20px;
+
+					&.active {
+						color: @primary-color;
+					}
+
+					p:nth-of-type(2) {
+						font-size: 12px;
+						font-family: MicrosoftYaHei;
+						color: rgba(102, 102, 102, 1);
+						line-height: 16px;
+						padding-top: 6px;
+					}
+				}
+			}
+		}
+	}
+
+	.more-box {
+		.text-more {
+			font-size: 20px;
+			font-family: MicrosoftYaHei-Bold;
+			font-weight: bold;
+			color: rgba(51, 51, 51, 1);
+			line-height: 26px;
+			text-align: left;
+			padding: 80px 0 40px 0;
+		}
+	}
+}
+.moreLive-list-wrap, .anchorHall-list-wrap {
+	color: #fff;
+	.moreLive-list-item, .anchorHall-list-item {
+		position: relative;
+		margin: 10px 20px 10px 20px;
+		border-bottom: 1px solid #161616;
+		.show {
+			max-height: 300px;
+			overflow: hidden;
+		}
+		.shrink {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			color: #169bd5;
+		}
+		.moreLive-list-img {
+			//height: 150px;
+			width: 100%;
+			overflow: hidden;
+            //border-radius: 10px;
+			img {
+				width: 100%;
+				height: 100%;
+			}
+		}
+
+		.moreLive-list-isTop {
+			color: #F12D37;
+			display: inline-block;
+		}
+
+		.morelive-list-picture {
+			max-width: 100%;
+			border-radius: 8px;
+			margin-right: 10px;
+			margin-bottom: 10px;
+			//border: 1px solid #f5f5f5;
+		}
+
+		.moreLive-list-title {
+            // padding: 10px 0 0 14px;
+            width: 100%;
+            //height: 20px;
+            //line-height: 20px;
+			padding: 5px 0;
+            font-size: 14px;
+            color: #fff;
+            text-overflow:ellipsis;
+            overflow:hidden;
+            white-space: nowrap;
+		}
+		.moreLive-list-flowIcon {
+			padding: 0 6px;
+			max-width: 60px;
+			height: 18px;
+			background: rgba(0, 0, 0, 0.6);
+			border-radius: 9px;
+			overflow: hidden;
+			position: absolute;
+			right: 20px;
+			top: 8px;
+			color: #fff;
+			font-size: 12px;
+			text-align: center;
+		}
+		.anchorHall-title {
+			display: flex;
+			justify-content: space-between;
+			font-size: 12px;
+			color: #ddd;
+			small {
+				color: #666;
+			}
+		}
+		.anchorHall-content {
+			font-size: 12px;
+			padding: 10px 0;
+			color: #999;
+			margin-bottom: 10px;
+			white-space: pre-wrap;
+		}
+	}
+}
+
+.moreFun {
+	padding: 9px 20px;
+	background-color: #000;
+	font-size: 14px;
+	color: #fff;
+	:global(.ant-tabs-bar) {
+		border-bottom: none;
+		:global(.ant-tabs-tab-active) {
+			color: #fff;
+		}
+	}
+}
+
+.live-info-wrap {
+	display: flex;
+	margin-left: 20px;
+	margin-bottom: 20px;
+	.live-fromSource, .live-time {
+		font-size: 12px;
+		color: #fff;
+		margin-right: 20px;
+	}
+}
+
+.count-down {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: #fff;
+	text-align: center;
+    font-size: 18px;
+}

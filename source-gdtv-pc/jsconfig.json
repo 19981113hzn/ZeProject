@@ -1,0 +1,43 @@
+{
+    "compileOnSave": false,
+    "compilerOptions": {
+        "jsx": "react",
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "lib": [
+            "esnext",
+            "dom"
+        ],
+        "allowSyntheticDefaultImports": true,
+        "moduleResolution": "node",
+        "module": "esnext",
+        "noImplicitAny": false,
+        "sourceMap": true,
+        "strictNullChecks": true,
+        "noUnusedLocals": true,
+        "target": "es6",
+        "paths": {
+            "Public/*": [
+                "src/view/statics/*"
+            ],
+            "Components/*": [
+                "src/view/components/*"
+            ],
+            "Utils/*": [
+                "src/view/utils/*"
+            ]
+        },
+        "baseUrl": "./"
+    },
+    "include": [
+        "./src/*"
+    ],
+    "exclude": [
+        "node_modules",
+        "build",
+        "src/utils",
+        "src/theme",
+        "dll",
+        "doc"
+    ]
+}

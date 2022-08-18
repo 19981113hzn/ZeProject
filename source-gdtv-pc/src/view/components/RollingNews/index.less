@@ -1,0 +1,56 @@
+@import "../../constants/style/global.less";
+
+.rolling-news-container {
+    position: relative;
+    padding-left: 70px;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    overflow: hidden;
+
+    .title {
+        position: absolute;
+        top: 0;
+        left: 0;
+        font-weight: bold;
+    }
+
+    .marquee {
+        width: 100%;
+        height: 30px;
+        line-height: 30px;
+        white-space: nowrap;
+        overflow: hidden;
+
+        .marquee-content {
+            display: inline-block;
+            white-space: nowrap;
+
+            .marquee-item {
+                position: relative;
+                display: inline-block;
+                padding: 0 16px 0 18px;
+
+                &:before {
+                    content: '|';
+                    position: absolute;
+                    left: 0;
+                    line-height: 28px;
+                    font-size: 14px;
+                    font-weight: bold;
+                }
+
+                &:first-child:before {
+                    display: none;
+                }
+            }
+
+            &+.marquee-content {
+                .marquee-item:first-child:before {
+                    display: block;
+                }
+            }
+        }
+    }
+}

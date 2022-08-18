@@ -1,0 +1,23 @@
+@import '../../constants/style/global.less';
+
+.image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-image: @logoGray;
+    background-size: 50% auto;
+    background-color: #e4e4e4;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    img[src=""],
+    img:not([src]) {
+        opacity: 0;
+    }
+}

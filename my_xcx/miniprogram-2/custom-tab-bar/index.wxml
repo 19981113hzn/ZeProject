@@ -1,0 +1,7 @@
+<!--component/tabBar/tabBar.wxml-->
+<view class="tabBar" style="padding-bottom: calc(18rpx + env(safe-area-inset-bottom))">
+  <view class="tabBar-item" wx:for="{{tabList}}" wx:key="index" bindtap="onClick" data-item="{{item}}" data-idx="{{index}}">
+    <image class="icon" src="{{isActive==index?item.clickIcon:item.icon}}"></image>
+    <view class="txt {{isActive==index?'clickTxt':''}}">{{item.txt}}</view>
+  </view>
+</view>

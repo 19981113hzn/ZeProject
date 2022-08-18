@@ -1,0 +1,193 @@
+<!--homePage/pages/manuscripts/manuscriptslist/manuscriptslist.wxml-->
+<!-- 导航栏 -->
+<view class="navigateContainer">
+  <view style="height: {{statusBarHeight}}px;"></view>
+  <view class="navigateBar" style="height:{{titleBarHeight}}px;">
+    <image bindtap="onReturn" class="navigateBar-icon" src="../../../image/blackback@2x.png"></image>
+    <view class="tab">
+        <view wx:for="{{navMenu}}" wx:key="index" data-idx="{{index}}" class="{{isActive == index ? 'tab-click' : ''}}" bindtap="switchNavTab">{{item.name}}</view>
+        <view class="navigateBar-icon"></view>
+    </view>
+  </view>
+</view>
+<view style="height: {{statusBarHeight + titleBarHeight}}px;"></view>
+
+<!-- 约稿列表轮播 -->
+<swiper class="swiper" current="{{isActive}}" bindchange="navChange">
+<!-- 约稿 -->
+<swiper-item class="manuscript">
+  <view class="manuscript-tab">
+    <view wx:key="index" wx:for="{{tabMenu}}" class="{{isTabActive==index?'click' : ''}}" bindtap="switchTab" data-idx="{{index}}">{{item}}</view>
+  </view>
+  <scroll-view bindrefresherrefresh="onRefresh" bindscrolltolower="getList" scroll-y refresher-enabled scroll-top="{{anchor}}" refresher-triggered="{{refreshFlag}}" class="content">
+    <view class="content-list" wx:if="{{list.length != 0}}">
+        <view class="content-list-item" wx:for="{{list}}" wx:key="index" bindtap="toDetail" data-id="{{item.id}}">
+          <view class="title">{{item.project_name}}</view>
+          <view class="label">
+            <view class="typeface type" wx:for="{{item.show_tags}}" wx:for-item="tag" wx:key="index" wx:if="{{index < 1}}">{{tag}}</view>
+            <view class="typeface manner" wx:for="{{item.style_tags}}" wx:for-item="sty" wx:key="index" wx:if="{{index < 3}}">{{sty}}</view>
+          </view>
+          <view class="tiptoe">
+              <view class="date">
+                截稿时间：{{item.end_date}}
+              </view>
+              <view class="price">
+                ￥{{item.min_price}}~{{item.max_price}}
+              </view>
+          </view>
+        </view>
+    </view>
+    <!-- 暂无约稿项目 -->
+    <view class="content-null" wx:else="">
+      <image src="../../../image/none_huashi@2x.png"></image>
+      <view>暂无约稿项目</view>
+    </view>
+  </scroll-view>
+</swiper-item>
+
+<!-- 画师自荐 -->
+<swiper-item class="recommend">
+  <view class="recommend-tag">
+  <scroll-view class="list" scroll-x enable-flex>
+    <view wx:for="{{recommendTags}}" wx:key="index" class="list-item {{isActiveTag == index ? 'list-click' : ''}}" bindtap="selectRecTags" data-idx="{{index}}">{{item.title}}</view>
+    <view class="gap"></view>
+  </scroll-view>
+  <!-- 筛选按钮 -->
+    <view class="filter" bindtap="changeFilter">
+      <image src="../../../image/shaixuan{{isFilter ? '_checked' : ''}}@2x.png"></image>
+    </view>
+  </view>
+  <view class="recommend-content">
+    <scroll-view scroll-y bindscrolltolower="getRecommendList" class="list" wx:if="{{list.length != 0}}" scroll-top="{{scrollTop}}">
+      <view wx:for="{{list}}" wx:key="index" class="list-item">
+        <view class="user">
+          <view class="user-info" bindtap="toUserPage" data-id="{{item.user.uid}}">
+            <image class="avatar" src="{{item.user.avatar}}" data-type="info"></image>
+            <view class="desc">
+                <view data-type="info">{{item.user.name}}</view>
+                <view class="time" data-type="info">{{item.time_desc}}</view>
+            </view>
+          </view>
+          <image wx:if="{{localUser.uid != item.user.uid}}" bindtap="onReport" data-idx="{{index}}" class="user-setting" src=""></image>
+        </view>
+        <view class="content">
+          <view class="content-text {{item.isUnfold ? '' : 'content-hidden'}}" style="padding-bottom: {{item.isUnfold ? '40rpx' : ''}};">
+              <view class="tags">{{item.type_tag_desc}}</view>
+              <view class="text" id="text{{index}}">{{item.content}}</view>
+              <!-- 展开 收起 -->
+              <block wx:if="{{item.isShow}}"></block>
+          </view>
+          <view class="content-photos">
+            <image wx:for="{{item.images}}" wx:for-item="img" wx:key="imgIdx" mode="aspectFill" lazy-load wx:for-index="imgIdx" bindtap="toPreview" data-idx="{{imgIdx}}" data-index="{{index}}" wx:if="{{imgIdx < 3}}" src="{{img.file_url}}"></image>
+            <view class="tips" wx:if="{{item.count > 0}}" bindtap="toPreview" data-idx="3" data-index="{{index}}">
+              +{{item.count}}
+            </view>
+          </view>
+        </view>
+        <view class="panel">
+            <view class="need">
+                <view class="amount" wx:if="{{item.price !=null}}">￥{{item.price}}
+                  <text> /张</text>
+                </view>
+                <view class="empty" wx:else>￥<text>稿酬待议</text></view>
+                <block wx:if="{{item.st && item.et}}">
+                  <view>{{item.st}}-{{item.et}}可约</view>
+                </block>
+                <block wx:if="{{item.st && !item.et}}">
+                  <view>{{item.st}}后可约</view>
+                </block>
+                <block wx:if="{{!item.st && item.et}}">
+                  <view>{{item.et}}前可约</view>
+                </block>
+                <block wx:if="{{!item.st && !item.et}}">
+                  <view>档期待议</view>
+                </block>
+               
+            </view>
+            <view class="operation">
+                <view class="btn" wx:if="{{localUser.uid != item.user.uid}}" data-idx="{{index}}" bindtap="onInvite">邀请</view>
+                <view class="mine" wx:else>
+                      <block wx:if="{{isPainterIdx == 4}}">
+                        <view class="status" wx:if="{{item.status == 2}}"></view>
+                        <view class="status wait" wx:if="{{enable_policy && item.status == 0}}">
+                          <image src="../../../image/feed_wait@2x.png"></image>
+                          待审核
+                        </view>
+                      </block>
+                      <image class="del" bindtap="onDelete" data-idx="{{index}}" src="../../../../images/delete@2x.png"></image>
+                </view>
+            </view>
+        </view>
+      </view>
+				<view style="height:env(safe-area-inset-bottom)"></view>
+    </scroll-view>
+    <view class="null">
+      <image src="../../../image/none_huashi@2x.png"></image>
+      <block wx:if="{{isFilter}}">
+        <view wx:if="{{isPainterIdx == 4}}">
+          {{localUser ? '没有合适的画师' : '筛选自己的自荐卡片需要先登录哦'}}
+        </view>
+        <view wx:else>没有合适的画师</view>
+      </block>
+      <block wx:if="{{isFilter}}">
+        <view class="btn" wx:if="{{!localUser && isPainterIdx == 4}}" bindtap="toLogin">去登录</view>
+        <view class="btn" wx:else bindtap="onResetFilter">重置筛选条件</view>
+      </block>
+    </view>
+  </view>
+</swiper-item>
+</swiper>
+
+<!-- 画师自荐筛选 -->
+<view class="filtrate" wx:if="{{isShowPanel}}">
+  <view class="filtrate-box" style="padding-bottom: calc(40rpx + env(safe-area-inset-bottom));">
+    <view class="title">
+      筛选【画师自荐】
+      <view class="title-close" bindtap="changeFilter">
+        <image src="../../../image/close@2x.png"></image>
+      </view>
+    </view>
+    <view class="content">
+      <view class="content-label">画师分类</view>
+      <view class="content-tags">
+        <view wx:for="{{painterType}}" wx:key="index" class="tag {{isPainterIdx == index ? 'click' : ''}}" bindtap="selectType" data-idx="{{index}}">{{item.name}}</view>
+      </view>
+      <view class="content-label">约稿类型（单选）</view>
+      <view class="content-tags">
+        <view wx:for="{{filterRecTags}}" wx:key="index" class="tag {{isTypeTag == index ? 'click' : ''}}" bindtap="selectTypeTag" data-idx="{{index}}">{{item.title}}</view>
+      </view>
+      <view class="content-label">档期</view>
+      <view class="content-input">
+        <picker mode="date" start="{{nowDate}}" value="{{showDateArr[0]}}" bindchange="bindDateChange" data-type="0">
+          <view class="inputdate">{{showDateArr[0]}}</view>
+        </picker>
+        <view class="gap">-</view>
+        <picker mode="date" start="{{nowDate}}" value="{{showDateArr[1]}}" bindchange="bindDateChange" data-type="1">
+          <view class="inputdate">{{showDateArr[1]}}</view>
+        </picker>
+      </view>
+      <view class="content-label">稿酬区间</view>
+      <view class="content-input">
+          <input type="number" class="inputdate" bindblur="inputAmount" value="{{showAmountArr[0]}}" data-type="0"/>
+          <view class="gap">-</view>
+          <input type="number" class="inputdate" bindblur="inputAmount" value="{{showAmountArr[1]}}" data-type="1"/>
+          <view class="gap">元</view>
+      </view>
+    
+    </view>
+    <view class="operation">
+      <view class="btn" bindtap="onReset">重置</view>
+      <view class="btn confirm" bindtap="onSearch">确定</view>
+    </view>
+  </view>
+
+</view>
+
+<!-- 邀请约稿 -->
+<view></view>
+
+<!-- 自定义提示框 -->
+<view class="toast" wx:if="{{inviteToast.isShow}}"></view>
+
+<!-- 邀请该画师加入约稿项目  提示框 -->
+<view class="dialog" wx:if="{{dialogObj.isShow}}"></view>

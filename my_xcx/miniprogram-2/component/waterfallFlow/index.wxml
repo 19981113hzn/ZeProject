@@ -1,0 +1,29 @@
+
+<view class="block">
+<!-- 列数 -->
+<view wx:for="{{columns}}" class="column" wx:key="index" style="{{index == 0 ? 'margin-right:14px' : ''}}">
+<!-- 每列个数 -->
+<view wx:for="{{item}}" class="column_item" wx:for-item="pic" wx:for-index="idx" wx:key="idx">
+<image src="{{pic.file_url}}?imageView&thumbnail=700x0" class="column_pic" mode="widthFix" bindtap="onClick" style="{{!isShowPanel?'border-radius: 16rpx;':''}}" data-idx="{{index}}" data-item="{{pic}}" data-index="{{idx}}">
+  <view class="illegal" wx:if="{{pic.invalid}}">
+    <image class="image" src="/images/home/feed_error@2x.png"></image>
+    <view class="text">违规图片</view>
+  </view>
+</image>
+<view class="panel" wx:if="{{isShowPanel}}">
+  <view class="info" bindtap="toPainters" data-uid="">
+    <image class=".image" src="{{pic.author.avatar}}" mode="aspectFill" data-uid="{{pic.author.uid}}"></image>
+    <view class="name">{{pic.author.name}}</view>
+  </view>
+  <view class="like">
+    <view class="num">{{pic.like_count}}</view>
+    <image class="likeIcon" src="/images/home/{{pic.liked ? 'likeon' : 'blacklikeoff'}}@2x.png" mode="widthFix"></image>
+  </view>
+</view>
+</view>
+</view>
+</view>
+
+<image src="/images/loading-{{color}}bg.gif" wx:if="{{!isShowLoading && columns[0].length>0}}" class="bottomLoading">
+
+</image>

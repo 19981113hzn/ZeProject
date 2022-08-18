@@ -1,0 +1,59 @@
+<!--communityPage/page/report/report.wxml-->
+<!-- 导航栏 -->
+<view class="navigateContainer">
+  <view style="height:{{statusBarHeight}}px;"></view>
+  <view class="navigateBar">
+    <view class="leftIcon" bindtap="toBack">
+      <image data-type="0" wx:if="{{showDom}}" src="../../image/close@2x.png"></image>
+      <image data-type="1" class="arrow" src="../../image/blackback@2x.png"></image>
+    </view>
+    <view class="title">{{showDom ? "画加社区公约" : "举报  "}}</view>
+    <view class="right"></view>
+  </view>
+</view>
+<!-- 占位 -->
+<view style="width:100%;height:{{statusBarHeight+titleBarHeight}}px;flex-shrink:0">
+
+</view>
+<!-- 页面内容 -->
+<view class="page" wx:if="{{!showDom}}" style="padding-bottom: calc(env(safe-area-inset-bottom))">
+<!-- 举报理由 -->
+<view  class="reason">
+<view class="tips">
+请选择举报原因（必填）
+</view>
+<view class="list">
+<view class="list-item" wx:for="{{list}}" 
+wx:key="index" data-idx="{{index}}" bindtap="onSelect"
+>
+<image class="select" src="../../image/checkbox_{{item.isSelect ? 'checked' : 'disable'}}@2x.png"></image>
+<view class="value">{{item.desc}}</view>
+</view>
+</view>
+</view>
+<view class="gap"></view>
+<!-- 举报详细原因 -->
+<view class="desc">
+    <view class="tips">请进行详细描述</view>
+    <view class="input">
+      <textarea value="{{desc}}" placeholder="填写证据相关文字描述" maxlength="100" bindinput="bindinput" auto-focus="true"></textarea>
+      <view class="input-count">{{count}}/100</view>
+    </view>
+  </view>
+<view class="gap"></view>
+<!-- 补充图片 -->
+<view class="pic">
+<view class="tips">请上传证据截图（最多三张）</view>
+<view class="upload">
+<view class="add" wx:if="{{images.length < 3}}" bindtap="uploadPic"></view>
+<view class="show" wx:for="{{images}}" wx:key="index">
+<image class="image" mode="aspectFill" src="{{item}}"></image>
+<image class="del" bindtap="delPic" data-idx="index" src="../../image/input_close@2x.png"></image>
+</view>
+</view>
+</view>
+<!-- 提交按钮 -->
+<view class="btn {{btncanuse ? 'clickbtn' : ''}}" bindtap="submit">提交</view>
+<!-- 画加社区规范 -->
+<view class="rule" bindtap="viewRule">了解<text>《画加社区公约》</text></view>
+</view>

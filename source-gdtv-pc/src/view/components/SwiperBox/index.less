@@ -1,0 +1,166 @@
+@import "../../constants/style/global.less";
+
+.swiper-box {
+    position: relative;
+    background-color: #222;
+    overflow: hidden;
+
+    .swiper {
+        width: 100%;
+        height: 100%;
+
+        .swiper-bg {
+            position: relative;
+            margin: 0 auto;
+            width: 100%;
+            height: 100%;
+            background-size: auto 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            cursor: pointer;
+            overflow: hidden;
+
+            /** 渐变图层 */
+            .bg-gradient {
+                position: absolute;
+                top: 0;
+                width: 20%;
+                height: 100%;
+
+                &.bg-gradient-left {
+                    left: -5%;
+                }
+
+                &.bg-gradient-right {
+                    right: -5%;
+                    transform: rotate(180deg);
+                }
+            }
+        }
+    }
+
+    .pagination-container {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 90px;
+        background-color: rgba(0, 0, 0, 0.4);
+        z-index: 2;
+
+        .swiper-tab-pane {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+
+            .pane-title,
+            .pane-sub-title {
+                width: 100%;
+                .textOverflow();
+            }
+
+            .pane-title {
+                font-size: 18px;
+            }
+
+            .pane-sub-title {
+                font-size: 12px;
+            }
+        }
+
+        :global(.swiper-pagination-bullet-active) {
+            .swiper-tab-pane {
+                .pane-title {
+                    font-size: 24px;
+                }
+
+                .pane-sub-title {
+                    font-size: 14px;
+                }
+            }
+        }
+
+        :global {
+            .swiper-pagination {
+                height: 100%;
+
+                .swiper-pagination-bullet {
+                    position: relative;
+                    padding: 18px;
+                    width: 13.33%;
+                    height: 100%;
+                    color: #fff;
+                    background-color: rgba(0, 0, 0, 0);
+                    border-radius: 0;
+                    opacity: 1;
+
+                    &:before {
+                        content: '';
+                        position: absolute;
+                        top: 50%;
+                        left: 0;
+                        transform: translateY(-50%);
+                        width: 1px;
+                        height: 44px;
+                        background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(255, 255, 255, 1) 46%, rgba(0, 0, 0, 0.6) 100%);
+                        opacity: 0.2;
+                    }
+
+                    &:first-child {
+                        &:before {
+                            display: none;
+                        }
+                    }
+
+                    &.swiper-pagination-bullet-active {
+                        width: 20%;
+                        background-color: rgba(0, 0, 0, 0.4);
+
+                        &:after {
+                            content: '';
+                            position: absolute;
+                            bottom: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 2px;
+                            background-color: @primary-color;
+                        }
+                    }
+                }
+            }
+        }
+
+        .page-size-VI {
+            :global {
+                .swiper-pagination-bullet {
+                    width: 15%;
+
+                    &.swiper-pagination-bullet-active {
+                        width: 25%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// <=1200 设备
+@media (max-width: @screen-width-lg) {
+    .swiper-box {
+        height: 460px;
+    }
+}
+
+// 1600<=<1200 设备
+@media (max-width: @screen-width-xl) and (min-width: @screen-width-lg) {
+    .swiper-box {
+        height: 540px;
+    }
+}
+
+// >=1600 设备
+@media (min-width: @screen-width-xl) {
+    .swiper-box {
+        height: 620px;
+    }
+}

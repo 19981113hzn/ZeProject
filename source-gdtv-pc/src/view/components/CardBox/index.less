@@ -1,0 +1,183 @@
+@import '../../constants/style/global.less';
+
+@borderRadius: 8px;
+
+.card-box {
+    position: relative;
+    text-align: left;
+
+    .card-cover {
+        position: relative;
+        padding-top: 56.6%;
+        border-radius: @borderRadius;
+        background: #e4e4e4;
+        overflow: hidden;
+
+        a {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            color: #fff;
+            .defaultBackground();
+        }
+
+        .cover {
+            width: 100%;
+            height: 100%;
+            border-radius: @borderRadius;
+        }
+
+        .card-bg {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 46px;
+            background-image: linear-gradient(-180deg, transparent 12%, rgba(0, 0, 0, .3));
+            border-radius: @borderRadius;
+        }
+    }
+
+    .card-info {
+        position: relative;
+        margin-top: 8px;
+        padding-top: 24%;
+        color: #333;
+
+        .card-title-container {
+            position: absolute;
+            top: 0;
+            padding: 0 6px;
+            width: 100%;
+            height: 40px;
+            line-height: 20px;
+            font-size: 14px;
+            overflow: hidden;
+
+            .card-title {
+                position: relative;
+                display: block;
+            }
+        }
+    }
+
+
+    &.card-box-bottom {
+        margin-bottom: 20px;
+    }
+
+    &.card-vertical {
+        .card-cover {
+            padding-top: 150%;
+        }
+    }
+
+    &.card-big {
+        height: 100%;
+        border-radius: @borderRadius;
+
+        .card-cover {
+            padding-top: 56.6%;
+        }
+
+        img,
+        .card-cover,
+        .card-bg {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        .card-info {
+            margin: 0;
+            padding: 20% 0 24px 0;
+            border: 1px solid rgba(245, 245, 245, 1);
+            border-top: none;
+            border-bottom-left-radius: @borderRadius;
+            border-bottom-right-radius: @borderRadius;
+
+            .card-title-container {
+                padding: 0 32px;
+                height: 100%;
+                line-height: 27px;
+                font-size: 20px;
+
+                .card-title {
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+            }
+        }
+
+        &:hover {
+            box-shadow: 0 2px 6px 0 rgba(0, 0, 0, .4);
+
+            .card-cover {
+                box-shadow: none;
+            }
+        }
+    }
+
+
+    &:hover {
+        .card-cover {
+            box-shadow: 0 2px 6px 0 rgba(0, 0, 0, .4);
+        }
+    }
+
+    :global {
+        .ant-typography {
+            margin: 0;
+            color: inherit;
+        }
+    }
+}
+
+// 覆盖物
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    .p-lt,
+    .p-lb,
+    .p-rt,
+    .p-rb {
+        position: absolute;
+        color: #fff;
+        font-size: 12px;
+        text-align: center;
+    }
+
+    .p-lt {
+        top: 8px;
+        left: 8px;
+    }
+
+    .p-lb {
+        bottom: 8px;
+        left: 8px;
+    }
+
+    .p-rt {
+        top: 8px;
+        right: 8px;
+    }
+
+    .p-rb {
+        right: 8px;
+        bottom: 8px;
+    }
+
+    .p-bg {
+        padding: 0 6px;
+        max-width: 60px;
+        height: 18px;
+        background: rgba(0, 0, 0, 0.6);
+        border-radius: 9px;
+        overflow: hidden;
+    }
+}

@@ -1,0 +1,72 @@
+@import "../../statics/css/variables.less";
+
+.page-index {
+    position: relative;
+    top: -@header-height;
+    width: 100%;
+    overflow: hidden;
+
+    .page-content {
+        margin-top: 32px;
+    }
+
+    .module-list {
+        .module-mod {
+            margin-bottom: 48px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .channel-news {
+        .channel-title {
+            font-family: MicrosoftYaHei-Bold;
+        }
+
+        .news-body {
+            .tabs-no-child {
+                :global {
+                    .ant-tabs-ink-bar {
+                        opacity: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    :global {
+        .ant-tabs {
+            overflow: initial;
+        }
+
+        .ant-tabs-bar {
+            border-bottom: 0;
+
+            .ant-tabs-nav {
+                .ant-tabs-tab {
+                    padding: 4px 0;
+                    font-weight: bold;
+
+                    &:first-child {
+                        padding: 0;
+                        font-size: 24px;
+                        color: @default-text-color;
+                        cursor: default;
+                    }
+                }
+
+                .ant-tabs-tab-active {
+                    font-weight: bold;
+                }
+
+                .ant-tabs-ink-bar {
+                    height: 3px;
+                    border-radius: 1px;
+                }
+            }
+
+        }
+    }
+}

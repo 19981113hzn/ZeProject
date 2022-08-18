@@ -1,0 +1,88 @@
+<!--homePage/pages/manuscripts/manuscriptsDetails/manuscriptsDetails.wxml-->
+<view class="manuscriptsdetails">
+<!-- 标题、需求方信息 -->
+<view class="view" class="container">
+  <!-- 已有人选水印 -->
+  <view class="watermark" wx:if="{{manuscriptsData.project.business_type == 2 && manuscriptsData.project.choice_count > 0}}">
+      <image src="../../../image/tag_selected@2x.png"></image>
+  </view>
+  <!-- 约稿标题 -->
+  <view class="title">{{manuscriptsData.project.name}}</view>
+  <!-- 需求方信息 -->
+  <view class="information">
+    <image src="{{manuscriptsData.employer.avatar}}" class="img"></image>
+    <view style="margin-left: 8px;width: 100%;">
+      <view class="back">
+        <view class="name">{{manuscriptsData.employer.name}}</view>
+       <image class="icon" wx:if="{{manuscriptsData.employer.is_identity_authed}}"></image>
+      </view>
+      <view class="datetime">
+          {{manuscriptsData.project.add_time}} 发布
+      </view>
+    </view>
+  </view>
+  <!-- 约稿信息 -->
+  <view class="foots">
+    <image src="../../../image/jiegao@2x.png" class="icon"></image>
+    <view class="text">{{manuscriptsData.project.end_date}}截稿</view>
+    <image src="../../../image/user@2x.png" class="icon2"></image>
+    <view class="text">共 {{manuscriptsData.project.apply_count}} 名画师应征</view>
+  </view>
+</view>
+<!-- 详细内容 -->
+<view class="describe">
+  <view class="title">详细内容</view>
+  <view class="text">
+    {{manuscriptsData.project.work_desc}}
+  </view>
+</view>
+<!-- 参考例图 -->
+<view class="illustration" wx:if="{{manuscriptsData.project.examples.length > 0}}">
+  <view class="title">参考例图</view>
+  <view class="pictureWapper">
+    <view
+      class="uploadWrap" bindtap="preview" wx:for="{{manuscriptsData.project.examples}}" wx:key="index"
+      style="{{index == 2 || index == 5 || index == 8? 'margin-right: 0': ''}}" data-url="{{item.work_url}}"
+    >
+      <image mode="aspectFill" src="{{item.work_url}}"></image>
+    </view>
+  </view>
+</view>
+<!-- 约稿描述 -->
+<view class="typeformat">
+  <view class="desc">
+    <view class="title">约稿描述</view>
+    <image src="../../../image/input_arrow@2x.png" class="icon" bindtap="manuscriptsDescribe"></image>
+  </view>
+  <view class="describe" wx:for="{{manuscriptsData.project.demand_desc}}" wx:key="index" style="{{index !== 2 && index !== 5? 'margin-right: 7px': ''}}" bindtap="manuscriptsDescribe">
+  <view>
+    <view class="title">{{item.title}}</view>
+    <view class="desc">{{item.text}}</view>
+  </view>
+  </view>
+</view>
+<view style="height: 64.8px;"></view>
+
+<!-- 约稿描述弹窗 -->
+<view class="popup" wx:if="{{shadestatus}}">
+  <view class="back">
+    <view class="title">约稿描述</view>
+    <view class="desc">
+      <view wx:for="{{manuscriptsData.project.demand_desc}}" wx:key="index" style="display: flex;margin-bottom: 36rpx;">
+        <view class="leftpane">{{item.title}}：</view>
+        <view class="rightpane">{{item.text}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="cutoffrule"></view>
+  <view class="button" bindtap="manuscriptsDescribe">完成</view>
+</view>
+
+<!-- 应征按钮 -->
+<view class="tail" wx:if="{{manuscriptsData.employer.uid}}">
+
+</view> 
+</view>
+
+<!-- 遮罩层 -->
+<view class="shade" bindtap="manuscriptsDescribe" wx:if="{{shadestatus}}"></view>

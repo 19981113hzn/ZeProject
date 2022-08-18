@@ -1,0 +1,52 @@
+<!--commityPage/page/releaseDynamic/releaseDynamic.wxml-->
+<!-- 主要内容区 -->
+<view class="content">
+<!-- 内容区 -->
+  <view class="box">
+  <view class="topic">
+    <view class="topic-label">添加话题</view>
+    <view class="topic-panel" style="position: relative; top: -{{top}}px;">
+      <view class="topic-panel-item {{item.isSelect ? 'topic-click' : ''}}" wx:for="{{topicList}}" wx:key="index" data-idx="{{index}}" bindtap="selectTopic">
+        #{{item.title}}
+      </view>
+    </view>
+  </view>
+
+  <view class="input">
+  <view class="textarea" id="input">
+    <textarea fixed="{{true}}" show-confirm-bar="{{true}}" bindinput="bindinput" bindfocus="bindfocus" bindblur="bindblur" auto-height="{{false}}" focus="{{isFocus}}"
+    adjust-position="{{false}}" placeholder="分享我的新鲜事..." maxlength="800" placeholder-style="color:'#caccd2'; font-size:16px" value="{{iptValue}}"
+    >
+    </textarea>
+  </view>
+
+  <view class="pic">
+  <view class="pic-upload" wx:if="{{uploadList.length < 9}}" bindtap="uploadPic">
+    
+  </view>
+  <view class="pic-item" wx:for="{{uploadList}}" wx:key="index">
+  <image class="close" bindtap="deletePic" src="../../image/input_close@2x.png" data-idx="{{index}}"></image>
+  <image class="cover" mode="aspectFill" src="{{item.file_url}}"></image>
+  </view>
+  </view>
+
+  </view>
+  </view>
+<!-- 操作区 -->
+  <view class="operation" style="position:{{isFocus?'fixed':'unset'}};bottom:{{keyHight}}px;padding-bottom:{{isFocus?'0':'env(safe-area-inset-bottom)'}};">
+  <view class="operation-panel">
+    <view class="icon" bindtap="clickInputIcon">
+    <image src="../../image/icon_community_at@2x.png" data-type="1"></image>
+    </view>
+    <view class="btn {{canUseBtn ? '' : 'default'}}" bindtap="onSend">发送</view>
+  </view>
+  </view>
+</view>
+
+<!-- 提示 -->
+<view class="toast" wx:if="{{noNetwork}}">
+<view class="toast-content">
+<image src="../../image/no-network@2x.png"></image>
+<view>网络不给力</view>
+</view>
+</view>
